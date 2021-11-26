@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const ResourceEnquiry = db.define('crm6db', {
+const ResourceEnquiry = db.define('ResourceEnquiry', {
     resource_enquiry_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
