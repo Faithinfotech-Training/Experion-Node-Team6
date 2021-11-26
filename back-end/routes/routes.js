@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bookRoutes = require('./books.route');
+const course_enquiryRoutes = require('./course_enquirys.route');
 
-router.use('/books', bookRoutes);
+router.use('/course_enquirys', course_enquiryRoutes);
 module.exports = router;

@@ -19,7 +19,7 @@ app.use(cors("*"));
 //Gig routes
 app.use('/', require('./routes/routes'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 db.sync().then(() => {
     app.listen(PORT, console.log(`Server started on port ${PORT}`));
 }).catch(err => console.log("Error: " + err));
