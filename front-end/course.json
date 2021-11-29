@@ -2,8 +2,8 @@
   "course": [
     {
       "id": 1,
-      "course_name": "testuser2@gmail.com",
-      "description": "testpassword2",
+      "course_name": "PYTHON",
+      "description": "Language",
       "course_fee": "4500",
       "total_seats": "50",
       "available_seats": "25"

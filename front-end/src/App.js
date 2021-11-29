@@ -1,7 +1,7 @@
 
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom"
-import React from "react";
 import CourseApp from "./Course/Course";
+import React from "react";
 import CourseDetails from "./Course/courseDetails";
 import CourseEdit from "./Course/courseEdit";
 import CourseList from "./Course/courseList";
@@ -31,7 +31,7 @@ function App() {
         
           <ul>
             <div id="col">
-            <li>
+           <li>
               <Link to="/">Home</Link>
             </li>
             <li>
@@ -41,6 +41,7 @@ function App() {
             <li>
               <Link to="/courselist">courselist</Link>
             </li>
+         
         
             </div>
           </ul>
@@ -52,14 +53,14 @@ function App() {
 
         <div style={styling1} >  
         <Routes>
-          
-          <Route path="/course" element={<CourseApp />}/>
-          <Route path="/courseedit" element={<CourseEdit />}/>
+        <Route path="/courseedit" element={<CourseEdit />}/>
+        <Route path="/course" element={<CourseApp />}/>
           <Route path="/courselist" element={<CourseList />}/>
           <Route path="/courseaccess" element={<CourseAccess />}/>
           <Route path="/courseedit/:id" element={<CourseEdit/>}/>
           <Route path="/coursedetails/:id" element={<CourseDetails />}/>
           <Route path="/coursedetails" element={<CourseDetails />}/>
+       
         </Routes>
         </div>
       </div>
