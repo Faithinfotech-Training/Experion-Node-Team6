@@ -33,11 +33,11 @@ function MyForm() {
         //alert the current state
         console.log(inputs);
         axios
-        .post('http://localhost:5001/staff',inputs)
+        .post('http://localhost:3001/course',inputs)
         .then(response => {
             console.log('Promise was fulfilled')
             console.log(response)
-            window.location='Stafflist'
+            window.location='/courselist'
         })
 
         }
@@ -79,7 +79,7 @@ function MyForm() {
              <th>
                 <label>Course_fee:
         
-                        <input type="text" name="corse_fee"
+                        <input type="number" name="course_fee"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
