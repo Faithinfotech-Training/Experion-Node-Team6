@@ -17,7 +17,8 @@ function CourseDetails(){
         width:"50%",
         height:"auto",
         display:"center",
-        margin:"auto"   
+        margin:"auto" ,
+        marginTop:"5%"  
     }
     const st1={
         
@@ -29,7 +30,9 @@ function CourseDetails(){
         textDecoration: "none",
         display: "inline-block",
         fontSize: "10px",
-        margin:"auto"
+        margin:"auto",
+       
+       
 
     }
 //initialize the use case to empty
@@ -56,12 +59,15 @@ useEffect(()=> {
         <h2>Available Seats : {course.available_seat}</h2>
         <a href="/courselist">Back to Course List</a>
         <br/><br/>
-        <button type="button"
+        <button type="button" className="btn btn-primary"
                 onClick={()=>navigate(`/courseedit/${course.id}`)} style={st1}>Edit Course</button>
         <br/><br/>
-        <button type="button"
+        <button type="button" className="btn btn-primary"
                 onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button>
         </div>
+
+
+
         </>);
 }
 function DeleteCourse(id){
