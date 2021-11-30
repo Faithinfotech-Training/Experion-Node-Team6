@@ -11,14 +11,14 @@ return (<>
 }
 
 function MyForm(props) {
-    const mystyle={
+   /* const mystyle={
         maxWidth: "500px",
         margin: "auto",
         background: "white",
         padding: "10px",
         borderStyle:"solid",
         backgroundColor:"orange",
-    }
+    }*/
     //initialize useState with emtpy {} and it will return 2 values,
     //The current state, and a function that updates the state.
     const [inputs, setInputs] = useState({});
@@ -57,15 +57,15 @@ function MyForm(props) {
 
         }
         return (
-            <div >
-            <form onSubmit={handleSubmit}>
-            <table style={mystyle}>
+            <div  className="d-flex justify-content-center" >
+            <form className="row col-md-6 g-3 needs-validation" onSubmit={handleSubmit}>
+            <table >
             <tr>
             <th>
             
             
                 
-            <label>:Course name
+            <label>Course name:
                      <input type="text" name="course_name"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
@@ -108,24 +108,25 @@ function MyForm(props) {
                  </tr>
                  <tr>
                  <th>
-                          <label>total_seats:
-                        <input type="number" name="total_seats"
-                        value={inputs.total_seats || ""}
-                        //onFocus={(e) => (e.currentTarget.type = "date")}
-                        //onBlur={() => (e.currentTarget.type = "text")}
+                          <label>total_seat:
+                          <input type="text" name="total_seat"
+                        value={inputs.total_seat || ""}
                         onChange={handleChange}
                         required
+                        
                         />
+                        
                 </label>
                 </th>
                  </tr>
                  <tr>
                  <th>
-                  <label>available_seats:
-                        <input type="number" name="available_seats"
-                        value={inputs.available_seats || ""}
+                  <label for="validationCustom01" className="form-label">available_seat:
+                  <input type="text" name="available_seat"
+                        value={inputs.available_seat || ""}
                         onChange={handleChange}
                         required
+                        
                         />
                     </label>
                     </th>

@@ -37,7 +37,7 @@ function MyForm() {
         .then(response => {
             console.log('Promise was fulfilled')
             console.log(response)
-            window.location='/courselist'
+            window.location='courselist'
         })
 
         }
@@ -49,7 +49,7 @@ function MyForm() {
             <th>
             
             
-                <label>:Course name
+                <label>Course Name:
                      <input type="text" name="course_name"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
@@ -62,9 +62,9 @@ function MyForm() {
             
             <tr>
             <th>
-            <label>Description:
+            <label>description:
             <th>
-                     <textarea name="description"
+                     <input type="text" name="description"
                         value={inputs.description || ""}
                         onChange={handleChange}
                         required
@@ -73,29 +73,11 @@ function MyForm() {
                 </label>
                 </th>
                 </tr>
-          
-                 
-             <tr>
-             <th>
-                <label>Course_fee:
-        
-                        <input type="number" name="course_fee"
-                        value={inputs.course_fee || ""}
-                        onChange={handleChange}
-                        required
-                        />
-                   
-                </label>
-                 </th>
-                
-                 </tr>
                  <tr>
                  <th>
-                          <label>total_seats:
-                        <input type="number" name="total_seats"
-                        value={inputs.total_seats || ""}
-                        //onFocus={(e) => (e.currentTarget.type = "date")}
-                        //onBlur={() => (e.currentTarget.type = "text")}
+                          <label>course_fee:
+                        <input type="number" name="course_fee"
+                        value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
                         />
@@ -103,16 +85,31 @@ function MyForm() {
                 </th>
                  </tr>
                  <tr>
-                 <th>
-                  <label>available_seats:
-                        <input type="number" name="available_seats"
-                        value={inputs.available_seats || ""}
-                        onChange={handleChange}
-                        required
-                        />
-                    </label>
-                    </th>
-                     </tr>
+                     <th>
+                            <label>total_seat:
+                                <input type="text" name="total_seat"
+                                value={inputs.total_seat || ""}
+                                onChange={handleChange}
+                                required
+                                />
+                            </label>
+
+
+                     </th>
+                </tr>
+                <tr>
+                     <th>
+                            <label>available_seat:
+                                <input type="text" name="available_seat"
+                                value={inputs.available_seat || ""}
+                                onChange={handleChange}
+                                required
+                                />
+                            </label>
+
+
+                     </th>
+                </tr>
                  <tr>
                  <th>
                 <input type="submit" />
