@@ -33,7 +33,7 @@ function MyForm() {
         //alert the current state
         console.log(inputs);
         axios
-        .post('http://localhost:3001/course',inputs)
+        .post('http://localhost:5001/course',inputs)
         .then(response => {
             console.log('Promise was fulfilled')
             console.log(response)

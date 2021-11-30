@@ -39,7 +39,7 @@ const {id} = useParams();
 const navigate=useNavigate();
 useEffect(()=> {
     axios
-    .get(`http://localhost:3001/course/${id}`)
+    .get(`http://localhost:5001/course/${id}`)
     .then(response => {
     console.log('promise was fullfilled')
     console.log(response)
@@ -67,7 +67,7 @@ useEffect(()=> {
 function DeleteCourse(id){
     console.log('delete1 promise was fullfilled')
     axios
-    .delete(`http://localhost:3001/course/${id}`)
+    .delete(`http://localhost:5001/course/${id}`)
     .then(response => {
     console.log('delete promise was fullfilled')
     console.log(response)

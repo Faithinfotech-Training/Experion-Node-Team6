@@ -25,7 +25,7 @@ function MyForm(props) {
 
     useEffect(()=> {
         axios
-        .get(`http://localhost:3001/course/${props.id}`)
+        .get(`http://localhost:5001/course/${props.id}`)
         .then(response => {
         console.log('promise was fullfilled')
         console.log(response)
@@ -47,7 +47,7 @@ function MyForm(props) {
         //alert the current state
         console.log(inputs);
         axios
-        .put(`http://localhost:3001/course/${props.id}`,inputs)
+        .put(`http://localhost:5001/course/${props.id}`,inputs)
         .then(response => {
             console.log('Promise was fulfilled')
             console.log(response)

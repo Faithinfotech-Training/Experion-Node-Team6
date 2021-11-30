@@ -24,7 +24,7 @@ function CourseList()
         console.log('The use effect has been executed');
 
         axios
-        .get('http://localhost:3001/course')
+        .get('http://localhost:5001/course')
         .then(response => {
             console.log('Promise was fulfilled')
             console.log(response)
@@ -59,34 +59,3 @@ export default CourseList;
 
 
 
-
-/*
-const fetchStaffList = () =>
-{
-    //return fetch("http://localhost:3001/staff_list")
-          //  .then((response)=> response.json())
-           //  .then((data)=>console.log(data));
-    return axios.get(" http://localhost:3001/staff_list")
-        .then((response) => console.log(response.data));
-}
-
-function StaffList()
-{
-    useEffect(()=> {
-        console.log('The use effect has been executed');
-        fetchStaffList();
-        setTimeout(()=> {
-        },5000)
-
-    },[])
-    return(
-        <>
-        <div>
-        
-            <p> stafflist </p>
-        </div>
-        </>
-    );
-}
-
-*/
