@@ -2,6 +2,7 @@
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom"
 import CourseApp from "./Course/Course";
 import React from "react";
+
 import CourseDetails from "./Course/courseDetails";
 import CourseEdit from "./Course/courseEdit";
 import CourseList from "./Course/courseList";
@@ -10,6 +11,7 @@ import CreateResource from "./Resources/CreateResource";
 
 import './App.css';
 import ViewResources from "./Resources/ViewResources";
+
 const styling={
   marginTop:"0%",
   display:"inline",
@@ -29,7 +31,7 @@ function App() {
     <Router>
       <div style={styling}>
       <header>
-        <nav>
+      <nav class="navbar navbar-dark bg-dark">
         
           <ul>
             <div id="col">
@@ -37,11 +39,11 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/course">Course Registration</Link>
+              <Link to="/course">Create Course</Link>
             </li>
            
             <li>
-              <Link to="/courselist">courselist</Link>
+              <Link to="/courselist">View Course</Link>
             </li>
             <li>
               <Link to="/resource/create">Create Resource</Link>

@@ -16,7 +16,13 @@ function CourseList()
         borderStyle : "solid",
         backgroundColor:"orange",
         padding:"10px",
-        margin:"5px"
+        margin:"auto",
+        textAlign:"center",
+        width:"20%",
+        marginTop:"5%",
+        listStyleType:"none"
+        
+        
     }
     //initialize the usestate to empty
     const [courses,setCourses]=useState([]);
@@ -37,7 +43,7 @@ function CourseList()
         <>
         <div>
         
-            <p> Courselist </p>
+            <h1 style={{marginTop:"2%",textAlign:"center"}}> Courselist </h1>
             <div >
             <ul  >
                 

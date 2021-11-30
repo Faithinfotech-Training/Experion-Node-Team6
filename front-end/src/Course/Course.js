@@ -9,11 +9,13 @@ return (<>
 function MyForm() {
     const mystyle={
         maxWidth: "500px",
-        margin: "auto",
         background: "white",
         padding: "10px",
         borderStyle:"solid",
         backgroundColor:"orange",
+        margin:"auto",
+        textAlign:"center",
+        marginTop:"5%"
      
     }
     //initialize useState with emtpy {} and it will return 2 values,
@@ -42,80 +44,75 @@ function MyForm() {
 
         }
         return (
-            <div >
-            <form onSubmit={handleSubmit}>
-            <table style={mystyle}>
-            <tr>
-            <th>
+            <div  className="d-flex justify-content-center" style={mystyle} >
+            <form className="row col-md-6 g-3 needs-validation" onSubmit={handleSubmit}>
+
             
             
-                <label>Course Name:
+            <div className="col-md-12">
+                 < label  for="validationCustom01" className="form-label">Course name:</label><br/>
                      <input type="text" name="course_name"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
                         required
                     />
-                </label>
-                </th>
-                </tr>
+                
+                
+            </div>
+            <div>
             
+                <label>Description:</label><br/>
             
-            <tr>
-            <th>
-            <label>description:
-            <th>
-                     <input type="text" name="description"
+                     <textarea name="description"
                         value={inputs.description || ""}
                         onChange={handleChange}
                         required
                     />
-                    </th>
-                </label>
-                </th>
-                </tr>
-                 <tr>
-                 <th>
-                          <label>course_fee:
-                        <input type="number" name="course_fee"
+                   
+                
+              
+            </div>
+                 
+     
+            <div>
+                <label>Course_fee:</label><br/>
+        
+                        <input type="text" name="course_fee"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
+                        
                         />
-                </label>
-                </th>
-                 </tr>
-                 <tr>
-                     <th>
-                            <label>total_seat:
-                                <input type="text" name="total_seat"
-                                value={inputs.total_seat || ""}
-                                onChange={handleChange}
-                                required
-                                />
-                            </label>
-
-
-                     </th>
-                </tr>
-                <tr>
-                     <th>
-                            <label>available_seat:
-                                <input type="text" name="available_seat"
-                                value={inputs.available_seat || ""}
-                                onChange={handleChange}
-                                required
-                                />
-                            </label>
-
-
-                     </th>
-                </tr>
-                 <tr>
-                 <th>
-                <input type="submit" />
-                </th>
-                 </tr>
-                </table>
+            </div>    
+            <div>
+                <label>total_seat:</label><br/>
+                    <input type="number" name="total_seat"
+                        value={inputs.total_seat || ""}
+                        onChange={handleChange}
+                        required
+                        
+                    />
+                        
+                
+            </div>
+            <div>
+               
+                 
+                <label for="validationCustom01" className="form-label">available_seat:</label><br/>
+                  <input type="number" name="available_seat"
+                        value={inputs.available_seat || ""}
+                        onChange={handleChange}
+                        min="0" max="total_seat.value"
+                        
+                    />
+             
+               
+            </div>
+                
+            <div>
+            <button className="btn btn-primary" type="submit">ADD</button>
+            </div>
+           
 
             </form> 
             </div>

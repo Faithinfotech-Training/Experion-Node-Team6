@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import {useParams} from "react-router-dom";
-
+import './edit.css'
 function CourseEdit(){
 const {id}=useParams();
 return (<>
-<h1>Course Edit</h1>
+<h1 style={{textAlign:"center",margin:"2%"}}> Course Edit</h1>
 <MyForm id={id}/>
 </>);
 }
 
 function MyForm(props) {
-   /* const mystyle={
+    const mystyle={
         maxWidth: "500px",
         margin: "auto",
         background: "white",
         padding: "10px",
         borderStyle:"solid",
+       
+        textAlign:"center",
+        marginTop:"3%",
+
         backgroundColor:"orange",
-    }*/
+    }
     //initialize useState with emtpy {} and it will return 2 values,
     //The current state, and a function that updates the state.
     const [inputs, setInputs] = useState({});
@@ -57,43 +61,38 @@ function MyForm(props) {
 
         }
         return (
-            <div  className="d-flex justify-content-center" >
+            <div  className="d-flex justify-content-center" style={mystyle} >
             <form className="row col-md-6 g-3 needs-validation" onSubmit={handleSubmit}>
-            <table >
-            <tr>
-            <th>
+
             
             
-                
-            <label>Course name:
+            <div className="col-md-12">
+                 < label  for="validationCustom01" className="form-label">Course name:</label><br/>
                      <input type="text" name="course_name"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
                         required
                     />
-                </label>
-                </th>
-                </tr>
+                
+                
+            </div>
+            <div>
             
+                <label>Description:</label><br/>
             
-            <tr>
-            <th>
-            <label>Description:
-            <th>
                      <textarea name="description"
                         value={inputs.description || ""}
                         onChange={handleChange}
                         required
                     />
-                    </th>
-                </label>
-                </th>
-                </tr>
-          
+                   
+                
+              
+            </div>
                  
-             <tr>
-             <th>
-                <label>Course_fee:
+     
+            <div>
+                <label>Course_fee:</label><br/>
         
                         <input type="text" name="course_fee"
                         value={inputs.course_fee || ""}
@@ -101,43 +100,36 @@ function MyForm(props) {
                         required
                         
                         />
-                   
-                </label>
-                 </th>
-                
-                 </tr>
-                 <tr>
-                 <th>
-                          <label>total_seat:
-                          <input type="text" name="total_seat"
+            </div>    
+            <div>
+                <label>total_seat:</label><br/>
+                    <input type="text" name="total_seat"
                         value={inputs.total_seat || ""}
                         onChange={handleChange}
                         required
                         
-                        />
+                    />
                         
-                </label>
-                </th>
-                 </tr>
-                 <tr>
-                 <th>
-                  <label for="validationCustom01" className="form-label">available_seat:
+                
+            </div>
+            <div>
+               
+                 
+                <label for="validationCustom01" className="form-label">available_seat:</label><br/>
                   <input type="text" name="available_seat"
                         value={inputs.available_seat || ""}
                         onChange={handleChange}
                         required
                         
-                        />
-                    </label>
-                    </th>
-                     </tr>
+                    />
+             
+               
+            </div>
                 
-                 <tr>
-                 <th>
-                <input type="submit" />
-                </th>
-                 </tr>
-                </table>
+            <div>
+            <button className="btn btn-primary" type="submit">EDIT</button>
+            </div>
+           
 
             </form> 
             </div>
