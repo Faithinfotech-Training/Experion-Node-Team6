@@ -26,7 +26,7 @@ function create(course_enquiry) {
 
 function updateCourse_enquiry(course_enquiry, course_enquiryId) {
     var updateCourse_enquiry = {
-        //course_enquiryId :course_enquiry.course_enquiryId,
+        course_enquiryId :course_enquiry.course_enquiryId,
         courseId: course_enquiry.courseId,
         enquirer_name: course_enquiry.enquirer_name,
         enquirer_email: course_enquiry.enquirer_email,
