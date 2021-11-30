@@ -6,8 +6,10 @@ import CourseDetails from "./Course/courseDetails";
 import CourseEdit from "./Course/courseEdit";
 import CourseList from "./Course/courseList";
 import CourseAccess from "./Course/courseAccess";
+import CreateResource from "./Resources/CreateResource";
 
 import './App.css';
+import ViewResources from "./Resources/ViewResources";
 const styling={
   marginTop:"0%",
   display:"inline",
@@ -41,6 +43,12 @@ function App() {
             <li>
               <Link to="/courselist">courselist</Link>
             </li>
+            <li>
+              <Link to="/resource/create">Create Resource</Link>
+            </li>
+            <li>
+              <Link to="/resource/view">View Resources</Link>
+            </li>
          
         
             </div>
@@ -51,16 +59,17 @@ function App() {
         </header>
 
 
-        <div style={styling1} >  
+        <div className="container" style={styling1} >  
         <Routes>
-        <Route path="/courseedit" element={<CourseEdit />}/>
-        <Route path="/course" element={<CourseApp />}/>
+          <Route path="/courseedit" element={<CourseEdit />}/>
+          <Route path="/course" element={<CourseApp />}/>
           <Route path="/courselist" element={<CourseList />}/>
           <Route path="/courseaccess" element={<CourseAccess />}/>
           <Route path="/courseedit/:id" element={<CourseEdit/>}/>
           <Route path="/coursedetails/:id" element={<CourseDetails />}/>
           <Route path="/coursedetails" element={<CourseDetails />}/>
-       
+          <Route path="/resource/create" element={<CreateResource />}/>
+          <Route path="/resource/view" element={<ViewResources />}/>
         </Routes>
         </div>
       </div>
