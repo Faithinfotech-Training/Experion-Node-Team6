@@ -7,11 +7,21 @@ import CourseDetails from "./Course/courseDetails";
 import CourseEdit from "./Course/courseEdit";
 import CourseList from "./Course/courseList";
 import CourseAccess from "./Course/courseAccess";
+<<<<<<< HEAD
 import CreateResource from "./Resources/CreateResource";
 import Home from "./Course/Home";
 import './App.css';
 import ViewResources from "./Resources/ViewResources";
 import ReactGA from 'react-ga';
+=======
+
+import CreateResource from "./Resources/CreateResource";
+import './App.css';
+import ViewResources from "./Resources/ViewResources";
+import UpdateResource from "./Resources/UpdateResource";
+
+
+>>>>>>> a9ee609de90cdd5cd2c03970e4d2fa32a01ad590
 const styling={
   marginTop:"0%",
   display:"inline",
@@ -82,6 +92,8 @@ useEffect(() => {
           <Route path="/coursedetails" element={<CourseDetails />}/>
           <Route path="/resource/create" element={<CreateResource />}/>
           <Route path="/resource/view" element={<ViewResources />}/>
+          <Route path="/resoure/update/:id" element={<UpdateResource />}/>
+
         </Routes>
         </div>
       </div>
