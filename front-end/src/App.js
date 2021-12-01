@@ -1,17 +1,17 @@
 
 import {BrowserRouter as Router,Routes, Route, Link} from "react-router-dom"
-import CourseApp from "./Course/Course";
-import React from "react";
+import CourseApp from "./Course/course";
+import React, { useEffect } from "react";
 
 import CourseDetails from "./Course/courseDetails";
 import CourseEdit from "./Course/courseEdit";
 import CourseList from "./Course/courseList";
 import CourseAccess from "./Course/courseAccess";
 import CreateResource from "./Resources/CreateResource";
-
+import Home from "./Course/Home";
 import './App.css';
 import ViewResources from "./Resources/ViewResources";
-
+import ReactGA from 'react-ga';
 const styling={
   marginTop:"0%",
   display:"inline",
@@ -24,8 +24,17 @@ const styling1={
 }
 
 
-
 function App() {
+  useEffect(()=>
+{
+  ReactGA.initialize('UA-214024739-1')
+
+  ReactGA.pageview(window.location.pathname + window.location.search)
+},[])
+
+useEffect(() => {
+  console.log(window.location.pathname)
+ })
  
   return (
     <Router>
@@ -63,6 +72,7 @@ function App() {
 
         <div className="container" style={styling1} >  
         <Routes>
+          <Route path="/"element ={<Home/>}/>
           <Route path="/courseedit" element={<CourseEdit />}/>
           <Route path="/course" element={<CourseApp />}/>
           <Route path="/courselist" element={<CourseList />}/>
