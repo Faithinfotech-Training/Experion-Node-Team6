@@ -27,7 +27,9 @@ return(<>
                         <th>Enquirer Name</th>
                         <th>Enquirer Email</th>
                         <th>Enquirer Phone</th>
-                        <th>Response Status</th>
+                        <th>Previous Response Status</th>
+
+                        <th>Current Response Status</th>
 
                         
                     </tr>
@@ -41,6 +43,8 @@ return(<>
                                 <td>{enquiry.enquirer_name}</td>
                                 <td>{enquiry.enquirer_email}</td>
                                 <td>{enquiry.enquirer_phone}</td>
+                                <td>{enquiry.previous_status}</td>
+
                                 <td>{enquiry.status}</td>
 
                                 

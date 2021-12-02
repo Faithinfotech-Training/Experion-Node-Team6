@@ -25,7 +25,7 @@ const ViewResourcesAdmin = (props) => {
                 <thead>
                     <tr>
                         <th>Resource Name</th>
-                        <th>Availabilty</th>
+                        {/* <th>Availabilty</th> */}
                         <th>Satus</th>
                         <th>Rent</th>
                         
@@ -37,7 +37,7 @@ const ViewResourcesAdmin = (props) => {
                             return (
                             <tr className="table-info" key={resource.resource_id}>
                                 <th scope="row">{resource.resource_name}</th>
-                                <td>{resource.slot_availability.split("T")[0]}</td>
+                             
                                 <td>{resource.status}</td>
                                 <td>{resource.rent}</td>
                                 <td>

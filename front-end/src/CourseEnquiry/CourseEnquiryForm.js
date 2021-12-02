@@ -17,7 +17,8 @@ function CourseEnquiryForm(props) {
         //to prevent default html form submit behaviour
 
         event.preventDefault();
-        inputs.status = "not attended"
+        inputs.status = "pending"
+        inputs.previous_status = "pending"
         inputs.course_name=props.courseName
         //alert the current state
         console.log(inputs);
@@ -63,7 +64,7 @@ function CourseEnquiryForm(props) {
                     </div>
                     <div>
                         <label >Mobile No : </label>
-                        <input type="tel" name="enquirer_phone" pattern="^\d{3}-\d{3}-\d{4}$" required
+                        <input placeholder='###-###-####' type="tel" name="enquirer_phone" pattern="^\d{3}-\d{3}-\d{4}$" required
                             value={inputs.enquirer_phone || ""}
                             onChange={handleChange} />
                     </div>

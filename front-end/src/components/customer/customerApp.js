@@ -7,6 +7,8 @@ import Login from "../../Login";
 import ViewCourse from "./viewCourse";
 import ViewCourseDetails from "./detailCourseView";
 import CourseEnquiryForm from "../../CourseEnquiry/CourseEnquiryForm";
+import ViewResource from "./viewResource";
+import ViewResourceDetails from "./detailResourceView";
 
 function CustomerApp(){
     return(
@@ -15,6 +17,8 @@ function CustomerApp(){
 <div><Link  to='/'>Home</Link></div>
 <div><Link  to='/about'>About</Link></div>
 <div ><Link  to="/viewcourse">Courses</Link></div>
+<div ><Link  to="/viewresource">Resources</Link></div>
+
 <div ><Link  to="/login">Login</Link></div>
 
 
@@ -25,7 +29,11 @@ function CustomerApp(){
 <Route path="/thanks" element={<ThankYou/>} />
 <Route path="/login" element={<Login />} />
 <Route path="/viewcourse" element={<ViewCourse />} />
+<Route path="/viewresource" element={<ViewResource />} />
+
 <Route path="/detailcourseview/:id" element={<ViewCourseDetails />} />
+<Route path="/detailresourceview/:resource_id" element={< ViewResourceDetails />} />
+
 <Route path="/courseenquiry" element={<CourseEnquiryForm />} />
 
 

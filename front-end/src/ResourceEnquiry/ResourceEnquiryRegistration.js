@@ -2,26 +2,23 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-export function ResourceEnquiryRegistration() {
-  return (
-    <>
-      <MyForm />
-    </>
-  );
-}
-
-function MyForm() {
+export function ResourceEnquiryRegistration(props) {
+  //console.log(props.resourceName+'inside')
   const [resourceEnquiryList, setResourceEnquiryList] = useState([]);
   const navigate = useNavigate();
+
+
   function handlechange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setResourceEnquiryList((values) => ({ ...values, [name]: value }));
+    resourceEnquiryList.resource_name=props.resourceName
+    //console.log(resourceEnquiryList.resourceName + 'hey');
   }
   function handleSubmit(event) {
     event.preventDefault();
-    resourceEnquiryList.status = "not attended";
-    console.log(resourceEnquiryList);
+    resourceEnquiryList.status = "pending";
+    resourceEnquiryList.resource_name=props.resourceName
 
     axios
       .post("http://localhost:5001/resourceEnquiry", resourceEnquiryList)
@@ -29,6 +26,7 @@ function MyForm() {
         console.log(response);
         window.location = "/";
         setResourceEnquiryList(response.data);
+        window.location = '/thanks'
       });
   }
   return (
@@ -51,13 +49,13 @@ function MyForm() {
           className="regform">
             <h1>Enquiry Registration</h1>
             <div class="formrow">
-              <label>Resource Id</label>
+              <label>Resource Name</label>
 
               <input
                 type="text"
-                name="resource_id"
-                value={resourceEnquiryList.resource_id || ""}
-                onChange={handlechange}
+                name="resource_name" readOnly
+                value={resourceEnquiryList.resource_name || props.resourceName}
+                
                 required
               />
             </div>
@@ -83,6 +81,12 @@ function MyForm() {
                 required
               />
             </div>
+            <div>
+                        <label >Mobile No : </label>
+                        <input placeholder='###-###-####' type="tel" name="enquirer_phone" pattern="^\d{3}-\d{3}-\d{4}$" required
+                            value={resourceEnquiryList.enquirer_phone || ""}
+                            onChange={handlechange} />
+                    </div>
             {/* <div class="formrow">
               <label>Mobile NO</label>
 

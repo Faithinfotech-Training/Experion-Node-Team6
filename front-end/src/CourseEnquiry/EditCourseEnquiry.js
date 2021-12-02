@@ -37,6 +37,8 @@ function MyForm(props) {
                 setCourseEnquiryList(response.data);
             });
     }, []);
+    const previous = enquiry.status;
+    console.log(previous+'previos')
 
     //On change of Status this function resets the value
     function handlechange(event) {
@@ -48,6 +50,7 @@ function MyForm(props) {
     function handleSubmit(event) {
         event.preventDefault();
         console.log(enquiry);
+        enquiry.previous_status = previous;
         axios
             .put(
                 `http://localhost:5001/course_enquirys/${props.course_enquiryId}`,
@@ -79,14 +82,17 @@ function MyForm(props) {
                             <option value="Not Attended"> Not Attended
                             </option>
                         </select>
-                        {/* 
+                       
+                    </div>
+                    <div>
+                         
             <input
               type="text"
-              name="status"
-              value={enquiry.status || ""}
+              name="previous_status"
+              value={enquiry.previous_status || previous}
               onChange={handlechange}
               required
-            /> */}
+            />
                     </div>
 
                     <div style={submitdiv}>

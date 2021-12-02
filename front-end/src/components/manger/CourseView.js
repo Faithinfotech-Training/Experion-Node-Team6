@@ -19,7 +19,7 @@ return(<>
                 <table className="table table-striped w-auto">
                 <thead>
                     <tr>
-                        <th>course Name</th>
+                        <th>Course Name</th>
                         <th>Details</th>
                         <th>course seats</th>
                         <th>Total seats</th>

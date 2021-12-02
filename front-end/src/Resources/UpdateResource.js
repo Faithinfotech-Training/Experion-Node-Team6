@@ -6,7 +6,7 @@ function UpdateResource(props){
     let {id} = useParams();
     const [formData, setFormData] = useState({
         resource_name: '',
-        slot_availability: '',
+        thumbnail: '',
         status: '',
         rent: 0
     })
@@ -19,7 +19,7 @@ function UpdateResource(props){
             .then(response=>{
                 console.log(response.data.data);
                 const resourceData = response.data.data;
-                resourceData.slot_availability = resourceData.slot_availability.split("T")[0];
+                //resourceData.slot_availability = resourceData.slot_availability.split("T")[0];
                 setFormData(resourceData);
             })
             .catch(error =>{
@@ -57,10 +57,10 @@ function UpdateResource(props){
                      value={formData.resource_name} placeholder="Enter Resource name" required />
                 </div>
                 <div className="col-md-12">
-                    <label htmlFor="validationCustom02" className="form-label">Date </label>
-                    <input type="date" className="form-control" id="validationCustom02" 
-                     onChange={(event)=>{handleFormData(event.target.value, 'slot_availability')}}
-                    value={formData.slot_availability} placeholder="Date" required />
+                    <label htmlFor="validationCustom02" className="form-label">Thumbnail URL </label>
+                    <input type="text" className="form-control" id="validationCustom02" 
+                     onChange={(event)=>{handleFormData(event.target.value, 'thumbnail')}}
+                    value={formData.thumbnail} placeholder="Date" required />
                 </div>
                 <div className="col-md-12">
                     <label htmlFor="validationCustom03" className="form-label">Status</label>

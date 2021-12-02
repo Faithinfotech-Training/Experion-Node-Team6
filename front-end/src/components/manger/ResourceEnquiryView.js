@@ -20,7 +20,7 @@ export function ResourceEnquiryViewManger() {
           <table className="table table-striped w-auto">
             <thead>
               <tr>
-                <th>Course ID</th>
+                <th>Course Name</th>
                 <th>Enquirer Name</th>
                 <th>Enquirer Email</th>
 
@@ -34,7 +34,7 @@ export function ResourceEnquiryViewManger() {
                     className="table-info"
                     key={resourceEnquiry.resource_enquiry_id}
                   >
-                    <th scope="row">{resourceEnquiry.resource_id}</th>
+                    <th scope="row">{resourceEnquiry.resource_name}</th>
                     <td>{resourceEnquiry.enquirer_name}</td>
                     <td>{resourceEnquiry.enquirer_email}</td>
 
