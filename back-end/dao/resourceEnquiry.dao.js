@@ -25,12 +25,17 @@ function create(resourceEnquiry) {
 }
 
 function updateResourceEnquiry(resourceEnquiry, resource_enquiry_id) {
+    ResourceEnquiry.findByPk(resource_enquiry_id).then(data=>{
+        previous=data.status
+    })
     var updateResourceEnquiry = {
        resource_name: resourceEnquiry.resource_name,
        enquirer_name: resourceEnquiry.enquirer_name,
        enquirer_email: resourceEnquiry.enquirer_email,
        enquirer_phone: resourceEnquiry.enquirer_phone,
-       status: resourceEnquiry.status
+       status: resourceEnquiry.status,
+       previous_status: previous
+
        
     };
     return ResourceEnquiry.update(updateResourceEnquiry, { where: { resource_enquiry_id: resource_enquiry_id} });
