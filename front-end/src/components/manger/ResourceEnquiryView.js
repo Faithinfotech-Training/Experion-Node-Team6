@@ -20,11 +20,12 @@ export function ResourceEnquiryViewManger() {
           <table className="table table-striped w-auto">
             <thead>
               <tr>
-                <th>Course Name</th>
+                <th>Resource Name</th>
                 <th>Enquirer Name</th>
                 <th>Enquirer Email</th>
-
-                <th>Response Status</th>
+                <th>Enquirer Phone</th>
+                <th>Previous Response Status</th>
+                <th>Current Response Status</th>
               </tr>
             </thead>
             <tbody>
@@ -37,7 +38,9 @@ export function ResourceEnquiryViewManger() {
                     <th scope="row">{resourceEnquiry.resource_name}</th>
                     <td>{resourceEnquiry.enquirer_name}</td>
                     <td>{resourceEnquiry.enquirer_email}</td>
+                    <td>{resourceEnquiry.enquirer_phone}</td>
 
+                    <td>{resourceEnquiry.previous_status}</td>           
                     <td>{resourceEnquiry.status}</td>
                   </tr>
                 );

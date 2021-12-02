@@ -63,13 +63,13 @@ function MyForm(props) {
           <form onSubmit={handleSubmit} className="regform ">
             <h1>Enquiry Edit</h1>
             <div class="formrow">
-              <label>Resource Id</label>
+              <label>Resource Name</label>
 
               <input
                 className="notallowed"
                 type="text"
                 name="resource_id"
-                value={resourceEnquiryList.resource_id || ""}
+                value={resourceEnquiryList.resource_name || ""}
                 readOnly
               />
             </div>
@@ -95,17 +95,17 @@ function MyForm(props) {
                 readOnly
               />
             </div>
-            {/* <div class="formrow">
-              <label>Status</label>
+            <div class="formrow">
+              <label>Previous Status</label>
 
               <input
                 type="text"
-                name="status"
-                value={resourceEnquiryList.status || ""}
+                name="previous_status"
+                value={resourceEnquiryList.previous_status || ""}
                 onChange={handlechange}
-                required
+                readOnly
               />
-            </div> */}
+            </div>
             <div class="formrow">
               <label>Status </label>
 

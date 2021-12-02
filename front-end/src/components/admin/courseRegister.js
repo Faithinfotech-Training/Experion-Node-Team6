@@ -33,15 +33,20 @@ function MyForm() {
         //to prevent default html form submit behaviour
         event.preventDefault();
         //alert the current state
-        console.log(inputs);
-        axios
-        .post('http://localhost:5001/course',inputs)
-        .then(response => {
-            console.log('Promise was fulfilled')
-            console.log(response)
-            window.location='/courseList'
-        })
-
+        // console.log(seatCheck(inputs));
+        if(inputs.total_seat < inputs.available_seat){
+            axios
+            .post('http://localhost:5001/course',inputs)
+            .then(response => {
+                console.log('Promise was fulfilled')
+                console.log(response)
+                // window.location='/courseList'
+            })
+        }
+        else{
+            alert("avilable seat is greater")
+        }
+        
         }
         return (
             <div  className="d-flex justify-content-center" style={mystyle} >
@@ -127,3 +132,8 @@ function MyForm() {
             </div>
         )
 }
+
+
+
+ 
+ 

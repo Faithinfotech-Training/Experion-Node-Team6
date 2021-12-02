@@ -19,6 +19,8 @@ export function ResourceEnquiryRegistration(props) {
     event.preventDefault();
     resourceEnquiryList.status = "pending";
     resourceEnquiryList.resource_name=props.resourceName
+    resourceEnquiryList.previous_status = "pending"
+
 
     axios
       .post("http://localhost:5001/resourceEnquiry", resourceEnquiryList)
