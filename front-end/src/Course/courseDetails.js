@@ -6,11 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function CourseDetails(){
-    const st={
-        //display:"inline",
-       // align:"center",
-        // marginTop:"0%",
-        //marginLeft:"50%",
+    const styling={
         borderStyle : "solid",
         backgroundColor:"orange",
         textAlign:"center",
@@ -20,8 +16,7 @@ function CourseDetails(){
         margin:"auto" ,
         marginTop:"5%"  
     }
-    const st1={
-        
+    const styling2={
         backgroundColor: "#4CAF50" ,/* Green */
         border:"none",
         color: "white",
@@ -31,9 +26,6 @@ function CourseDetails(){
         display: "inline-block",
         fontSize: "10px",
         margin:"auto",
-       
-       
-
     }
 //initialize the use case to empty
 
@@ -51,7 +43,7 @@ useEffect(()=> {
     },[])
 
     return (<>
-        <div style={st}>
+        <div style={styling}>
         <h1>Details of {course.course_name}</h1>
         <h2>Description : {course.description}</h2>
         <h2>Course Fee : {course.course_fee}</h2>
@@ -60,10 +52,10 @@ useEffect(()=> {
         <a href="/courselist">Back to Course List</a>
         <br/><br/>
         <button type="button" className="btn btn-primary"
-                onClick={()=>navigate(`/courseedit/${course.id}`)} style={st1}>Edit Course</button>
+                onClick={()=>navigate(`/courseedit/${course.id}`)} style={styling2}>Edit Course</button>
         <br/><br/>
         <button type="button" className="btn btn-primary"
-                onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button>
+                onClick={()=>DeleteCourse(course.id)} style={styling2}>Delete</button>
         </div>
 
 

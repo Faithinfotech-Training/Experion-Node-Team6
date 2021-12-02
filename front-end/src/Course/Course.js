@@ -18,6 +18,9 @@ function MyForm() {
         marginTop:"5%"
      
     }
+
+    var page_name;
+    var visit=0;
     //initialize useState with emtpy {} and it will return 2 values,
     //The current state, and a function that updates the state.
     const [inputs, setInputs] = useState({});
@@ -53,6 +56,7 @@ function MyForm() {
                  < label  for="validationCustom01" className="form-label">Course name:</label><br/>
                      <input type="text" name="course_name"
                         value={inputs.course_name || ""}
+                        page_name={inputs.course_name}
                         onChange={handleChange}
                         required
                     />
@@ -118,4 +122,7 @@ function MyForm() {
             </div>
         )
 }
+
+
+  
 export default CourseApp;

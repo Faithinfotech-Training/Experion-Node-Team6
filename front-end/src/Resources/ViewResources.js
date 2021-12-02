@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 const ViewResources = (props) => {
+    const navigate = useNavigate();
     const [resources, setResource] = useState([])
     
     useEffect(() => {
@@ -27,6 +29,10 @@ const ViewResources = (props) => {
                 console.log("error", error);
             })
     }
+
+    const handleEditResource = (id) => {
+        navigate("/resoure/update/" + id)
+    }
     
     return (
         <div>
@@ -36,7 +42,7 @@ const ViewResources = (props) => {
                     <tr>
                         <th>Resource Name</th>
                         <th>Availabilty</th>
-                        <th>Satus</th>
+                        <th>Status</th>
                         <th>Rent</th>
                         <th>Action</th>
                     </tr>
@@ -51,7 +57,7 @@ const ViewResources = (props) => {
                                 <td>{resource.status}</td>
                                 <td>{resource.rent}</td>
                                 <td>
-                                    <button className="btn btn-outline-primary">Edit</button>
+                                    <button className="btn btn-outline-primary" onClick={()=>{handleEditResource(resource.resource_id)}}>Edit</button>
                                     <button className="btn btn-outline-danger" onClick={() =>deleteResource(resource.resource_id)}>Delete</button>
                                 </td>
                             </tr>

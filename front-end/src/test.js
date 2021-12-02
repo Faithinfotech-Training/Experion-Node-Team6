@@ -1,4 +1,4 @@
-import App from "./App";
+//import App from "./App";
 import { AdminApp } from "./components/admin/adminApp";
 import CustomerApp from "./components/customer/customerApp";
 
