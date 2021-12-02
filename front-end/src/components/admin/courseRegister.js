@@ -34,13 +34,13 @@ function MyForm() {
         event.preventDefault();
         //alert the current state
         // console.log(seatCheck(inputs));
-        if(inputs.total_seat < inputs.available_seat){
+        if(inputs.total_seat > inputs.available_seat){
             axios
             .post('http://localhost:5001/course',inputs)
             .then(response => {
                 console.log('Promise was fulfilled')
                 console.log(response)
-                // window.location='/courseList'
+                window.location='/courseList'
             })
         }
         else{

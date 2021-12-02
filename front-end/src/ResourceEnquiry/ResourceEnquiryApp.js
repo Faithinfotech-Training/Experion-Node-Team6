@@ -6,7 +6,7 @@ import { ResourceEnquiryList } from "./ResourceEnquiryList";
 import { ResourceEnquiryRegistration } from "./ResourceEnquiryRegistration";
 import "./resourcesStyles.css";
 
-export function ResourceEnquiryApp() {
+export function ResourceEnquiryTry() {
   return (
     <>
       <MyRouter />

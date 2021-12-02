@@ -50,6 +50,7 @@ function MyForm(props) {
         event.preventDefault();
         //alert the current state
         console.log(inputs);
+        if(inputs.total_seat > inputs.available_seat){
         axios
         .put(`http://localhost:5001/course/${props.id}`,inputs)
         .then(response => {
@@ -58,7 +59,10 @@ function MyForm(props) {
             alert("the user details are updated");
         })
         window.location=`/coursedetails/${props.id}`
-
+    }
+    else {
+        alert('Available seat greater than total seat')
+    }
         }
         return (
             <div  className="d-flex justify-content-center" style={mystyle} >

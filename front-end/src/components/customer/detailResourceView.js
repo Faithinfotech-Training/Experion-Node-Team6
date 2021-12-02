@@ -65,16 +65,16 @@ function ViewResourceDetails() {
         <div style={st}>
             <h1>Details of {resource.resource_name}</h1>
             <h2>Rent : {resource.rent}</h2>
-
-            <a href="/resourcelist">Back to Resource List</a>
+            </div>
+            <a href="/viewresource">Back to Resource List</a>
             <br /><br />
-            <button> <ResourceEnquiryRegistration resourceName={resourceName} /></button>
+            <div> <ResourceEnquiryRegistration resourceName={resourceName} /></div>
             {/* <button type="button" className="btn btn-primary"
                 onClick={(courseName)=>navigate('/courseenquiry')} style={st1}>Place Enquiry</button> */}
             <br /><br />
             {/* <button type="button" className="btn btn-primary"
                 onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button> */}
-        </div>
+       
 
 
 

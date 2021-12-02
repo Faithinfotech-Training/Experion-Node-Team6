@@ -59,17 +59,18 @@ useEffect(()=> {
         <h1>Details of {course.course_name}</h1>
         <h2>Description : {course.description}</h2>
         <h2>Course Fee : {course.course_fee}</h2>
-        <h2>Total Seats : {course.total_seat}</h2>
+        {/* <h2>Total Seats : {course.total_seat}</h2> */}
         <h2>Available Seats : {course.available_seat}</h2>
-        <a href="/courselist">Back to Course List</a>
+        </div>
+        <a href="/viewcourse">Back to Course List</a>
         <br/><br/>
-        <button> <CourseEnquiryForm courseName={courseName}/></button>
+        <div> <CourseEnquiryForm courseName={courseName}/></div>
         {/* <button type="button" className="btn btn-primary"
                 onClick={(courseName)=>navigate('/courseenquiry')} style={st1}>Place Enquiry</button> */}
         <br/><br/>
         {/* <button type="button" className="btn btn-primary"
                 onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button> */}
-        </div>
+     
 
 
 
