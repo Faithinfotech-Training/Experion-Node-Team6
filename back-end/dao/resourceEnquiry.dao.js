@@ -1,4 +1,4 @@
-const ResourceEnquiry = require('../models/ResourceEnquiry');
+const ResourceEnquiry = require('../models/resourceEnquiry');
 var resourceEnquiryDao = {
     findAll: findAll,
     create: create,
@@ -26,10 +26,11 @@ function create(resourceEnquiry) {
 
 function updateResourceEnquiry(resourceEnquiry, resource_enquiry_id) {
     var updateResourceEnquiry = {
-       resource_id: resourceEnquiry.resource_id,
-       enquirer_name : resourceEnquiry.enquirer_name ,
-        publish_date: resourceEnquiry.publish_date,
-        status: resourceEnquiry.status ,
+       resource_name: resourceEnquiry.resource_name,
+       enquirer_name: resourceEnquiry.enquirer_name,
+       enquirer_email: resourceEnquiry.enquirer_email,
+       enquirer_phone: resourceEnquiry.enquirer_phone,
+       status: resourceEnquiry.status
        
     };
     return ResourceEnquiry.update(updateResourceEnquiry, { where: { resource_enquiry_id: resource_enquiry_id} });

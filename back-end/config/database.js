@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize')
 const db = new Sequelize('crm6db', 'sqlite', 'Welcome123', {
     host: 'localhost',
     dialect: 'sqlite',
-    storage: 'db.sqlite',
+    storage: 'mydb.sqlite',
 
     pool: {
         max: 5,

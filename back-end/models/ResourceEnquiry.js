@@ -7,7 +7,7 @@ const ResourceEnquiry = db.define('ResourceEnquiry', {
         primaryKey: true,
         autoIncrement: true
     },
-    resource_id: {
+    resource_name: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
@@ -16,6 +16,15 @@ const ResourceEnquiry = db.define('ResourceEnquiry', {
         allowNull: false
     },
     enquirer_email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        isEmail: true
+    },
+    enquirer_phone: {
+        type: Sequelize.NUMBER,
+        allowNull: false
+    },
+    previous_status: {
         type: Sequelize.STRING,
         allowNull: false
     },

@@ -1,4 +1,4 @@
-const Course = require('../models/Course');
+const Course = require('../models/course');
 var courseDao = {
     findAll: findAll,
     create: create,
@@ -27,8 +27,8 @@ function create(course) {
 function updateCourse(course, id) {
     var updateCourse = {
         course_name: course.course_name,
-        //password: staff.password,
         description: course.description,
+        thumbnail: course.thumbnail,
         course_fee: course.course_fee,
         total_seat: course.total_seat,
         available_seat: course.available_seat

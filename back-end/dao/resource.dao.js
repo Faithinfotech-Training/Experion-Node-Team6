@@ -1,4 +1,4 @@
-const Resource = require("../models/Resource");
+const Resource = require("../models/resource");
 var ResourceDao = {
     create: create,
     findAllResource: findAllResource,
@@ -21,7 +21,7 @@ function findResourceById(id){
 function updateResource(resource, id){
     var updatedResource = {
         resource_name: resource.resource_name,
-        slot_availability: resource.slot_availability,
+        thumbnail: resource.thumbnail,
         status: resource.status,
         rent: resource.rent
     };

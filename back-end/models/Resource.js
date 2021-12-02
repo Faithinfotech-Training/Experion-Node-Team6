@@ -11,8 +11,9 @@ const Resource = db.define('resource', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    slot_availability: {
-        type: Sequelize.DATE,
+    
+    thumbnail: {
+        type: Sequelize.STRING,
         allowNull: false
     },
    

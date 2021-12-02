@@ -15,6 +15,10 @@ const Course = db.define('course', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    thumbnail: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
    
     course_fee: {
         type: Sequelize.INTEGER,
@@ -27,8 +31,10 @@ const Course = db.define('course', {
   
     available_seat: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        
     }
+    
  
  
 });

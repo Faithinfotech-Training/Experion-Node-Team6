@@ -32,7 +32,7 @@ function deleteById(req, res) {
     courseDao.deleteById(req.params.id).
         then((data) => {
             res.status(200).json({
-                message: "staff deleted successfully",
+                message: "Course deleted successfully",
                 staff: data
             })
         })
@@ -45,7 +45,7 @@ function updateCourse(req, res) {
     courseDao.updateCourse(req.body, req.params.id).
         then((data) => {
             res.status(200).json({
-                message: "Staff updated successfully",
+                message: "Course updated successfully",
                 staff: data
             })
         })
