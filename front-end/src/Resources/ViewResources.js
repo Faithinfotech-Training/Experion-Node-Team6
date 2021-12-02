@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
+
+
 const ViewResources = (props) => {
     const navigate = useNavigate();
     const [resources, setResource] = useState([])
@@ -20,14 +24,29 @@ const ViewResources = (props) => {
     }
 
     const deleteResource = (id) => {
-        axios.delete("http://localhost:5001/resource/" + id)
-            .then((response) => {
-                alert("Resource deleted succesfully");
-                getAllResources();
-            })
-            .catch((error) => {
-                console.log("error", error);
-            })
+        confirmAlert({
+            title: 'Resource Delete',
+            message: 'Are you sure to do this.',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {
+                    axios.delete("http://localhost:5001/resource/" + id)
+                        .then((response) => {
+                            toast.success("Resource deleted succesfully")
+                            getAllResources();
+                        })
+                        .catch((error) => {
+                            toast.success("Error occured while Deleting")
+                        })
+                }
+              },
+              {
+                label: 'No'
+              }
+            ]
+          });
+        
     }
 
     const handleEditResource = (id) => {
@@ -71,7 +90,7 @@ const ViewResources = (props) => {
     
                 </table>
             )}
-            
+            <ToastContainer/>
         </div>
         
         
