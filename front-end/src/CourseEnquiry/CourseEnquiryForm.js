@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import '../courseStyles.css'
+import '../ResourceEnquiry/resourcesStyles.css'
 
-function CourseEnquiryForm() {
+function CourseEnquiryForm(props) {
     const [inputs, setInputs] = useState({});
+
+    console.log(props.courseName)
     function handleChange(event) {
 
         const name = event.target.name;
@@ -16,6 +18,7 @@ function CourseEnquiryForm() {
 
         event.preventDefault();
         inputs.status = "not attended"
+        inputs.course_name=props.courseName
         //alert the current state
         console.log(inputs);
 
@@ -39,10 +42,10 @@ function CourseEnquiryForm() {
             <div className='regform '>
                 <form onSubmit={handleSubmit} action="">
                     <div>
-                        <label>Course ID : </label>
-                        <input type="number" name="courseId"
-                            value={inputs.courseId || ""}
-                            onChange={handleChange} />
+                        <label>Course Name : </label>
+                        <input type="text" name="course_name" readOnly
+                            value={inputs.course_name || props.courseName}
+                             />
                     </div>
                     <div>
                         <label>Name : </label>

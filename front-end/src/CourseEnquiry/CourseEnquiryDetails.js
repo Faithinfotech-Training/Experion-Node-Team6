@@ -24,7 +24,7 @@ function CourseEnquiryDetails() {
         <>
             <div className='regform'>
                 <h1>Course Enquiry Registration</h1>
-                <a href='/courseenquirylist'>Back to Enquiry List</a>
+                <a href='/courseEnqiury'>Back to Enquiry List</a>
                 <div>Course ID : {enquiry.courseId}</div>
                 <div>Enquirer Name: {enquiry.enquirer_name}</div>
                 <div>Enquirer Email: {enquiry.enquirer_email}</div>

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
-import '../courseStyles.css'
+import '../ResourceEnquiry/resourcesStyles.css'
+
 function EditCourseEnquiry() {
 
 
