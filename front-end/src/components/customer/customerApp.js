@@ -9,8 +9,20 @@ import ViewCourseDetails from "./detailCourseView";
 import CourseEnquiryForm from "../../CourseEnquiry/CourseEnquiryForm";
 import ViewResource from "./viewResource";
 import ViewResourceDetails from "./detailResourceView";
+import  { useEffect } from "react";
+import ReactGA from 'react-ga';
 
 function CustomerApp(){
+    useEffect(()=>
+    {
+      ReactGA.initialize('UA-214024739-1')
+    
+      ReactGA.pageview(window.location.pathname + window.location.search)
+    },[])
+    
+    useEffect(() => {
+      console.log(window.location.pathname)
+     })
     return(
         <>
 <Router>

@@ -54,16 +54,7 @@ const styling1={
 
 
 function App() {
-  useEffect(()=>
-{
-  ReactGA.initialize('UA-214024739-1')
-
-  ReactGA.pageview(window.location.pathname + window.location.search)
-},[])
-
-useEffect(() => {
-  console.log(window.location.pathname)
- })
+ 
  
   return (
    <>
