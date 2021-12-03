@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 
 export function ResourceEnquiryRegistration(props) {
   //console.log(props.resourceName+'inside')
@@ -26,9 +27,13 @@ export function ResourceEnquiryRegistration(props) {
       .post("http://localhost:5001/resourceEnquiry", resourceEnquiryList)
       .then((response) => {
         console.log(response);
-        window.location = "/";
+        //window.location = "/";
         setResourceEnquiryList(response.data);
-        window.location = '/thanks'
+        toast.success("Enquiry Submitted successfully");
+                setTimeout(() => {
+                    navigate("/thanks")
+                }, 3000)
+       // window.location = '/thanks'
       });
   }
   return (
@@ -111,6 +116,8 @@ export function ResourceEnquiryRegistration(props) {
               <input className="submit floatRight" type="submit" value="submit" />
             </div>
           </form>
+          <ToastContainer />
+
         </div>
       </div>
     </>

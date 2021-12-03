@@ -1,8 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import '../ResourceEnquiry/resourcesStyles.css'
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 
 function CourseEnquiryForm(props) {
+    const navigate =useNavigate();
+
     const [inputs, setInputs] = useState({});
 
     console.log(props.courseName)
@@ -32,8 +36,22 @@ function CourseEnquiryForm(props) {
                 console.log('promise fulfilled')
                 console.log(response)
                 setInputs(response.data)
-                window.location = '/thanks'
+                toast.success("Enquiry Submitted successfully");
+                setTimeout(() => {
+                    navigate("/thanks")
+                }, 3000)
+               // window.location = '/thanks'
             })
+            /**
+              toast.success("Resource saved successfully");
+                setTimeout(() => {
+                    navigate("/resourceList")
+                }, 3000)
+            })
+            .catch((error) => {
+                toast.error("Error occured while creating resource. Please try again!!!");
+            })
+             */
     }
 
     //rendering components
@@ -74,6 +92,8 @@ function CourseEnquiryForm(props) {
                         <input className='reset' type="reset" name='clear' value="Clear" />
                     </div>
                 </form>
+            <ToastContainer />
+
             </div>
 
 
