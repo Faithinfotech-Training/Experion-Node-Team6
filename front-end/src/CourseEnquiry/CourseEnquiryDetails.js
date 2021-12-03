@@ -29,6 +29,8 @@ function CourseEnquiryDetails() {
                 <div>Enquirer Name: {enquiry.enquirer_name}</div>
                 <div>Enquirer Email: {enquiry.enquirer_email}</div>
                 <div>Enquirer Phone: {enquiry.enquirer_phone}</div>
+                <div>Previous Status: {enquiry.previous_status}</div>
+
                 <div>Response Status: {enquiry.status}
                     <button>
                         <Link to={`/courseenquiryupdate/${enquiry.course_enquiryId}`}>Edit Status</Link>

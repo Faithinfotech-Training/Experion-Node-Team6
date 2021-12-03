@@ -42,6 +42,8 @@ return(<>
                                 <td>{course.available_seat}</td>
                                 <td>
                                     <button className="btn btn-outline-primary"  onClick={()=>navigate(`/courseedit/${course.id}`)}>Edit</button>
+
+                                    
                                     <button className="btn btn-outline-danger" onClick={()=>DeleteCourse(course.id)}>Delete</button>
                                 </td>
 
