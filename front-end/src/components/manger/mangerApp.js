@@ -10,6 +10,7 @@ export function ManagerApp() {
   return (
     <>
       <Router>
+
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
           <div class="container-fluid">
             <ul class="nav navbar-nav"> 
@@ -23,6 +24,7 @@ export function ManagerApp() {
           </div>
         </nav>
        
+
         <Routes>
           <Route path="/manager" element={<HomeManger />} />
           <Route path="/course" element={<CourseViewManger />} />

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios";
 
 
@@ -16,51 +16,55 @@ export function CourseEnquiryViewManger() {
 
 
     }, [])
-return(<>
-<h1>course Enquiries list </h1>
-<div>
-            {enquiries.length === 0 ? (<h5>enquirys not available</h5>) : (
-                <table className="table table-striped w-auto">
-                <thead>
-                    <tr>
-                        <th>Course Name</th>
-                        <th>Enquirer Name</th>
-                        <th>Enquirer Email</th>
-                        <th>Enquirer Phone</th>
-                        <th>Previous Response Status</th>
+    return (<>
+        <section class="py-5"><h1>Course Enquiries List </h1>
+            <div class="container text-center">
 
-                        <th>Current Response Status</th>
+                <div>
+                    {enquiries.length === 0 ? (<h5>enquirys not available</h5>) : (
+                        <table className="table table-striped w-auto">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Enquirer Name</th>
+                                    <th>Enquirer Email</th>
+                                    <th>Enquirer Phone</th>
+                                    <th>Previous Response Status</th>
 
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        enquiries.map(enquiry => {
-                            return (
-                            <tr className="table-info" key={enquiry.course_enquiryId}>
-                                <th scope="row">{enquiry.course_name}</th>
-                                <td>{enquiry.enquirer_name}</td>
-                                <td>{enquiry.enquirer_email}</td>
-                                <td>{enquiry.enquirer_phone}</td>
-                                <td>{enquiry.previous_status}</td>
+                                    <th>Current Response Status</th>
 
-                                <td>{enquiry.status}</td>
 
-                                
-                            </tr>
-                            )
-                        })
-                    }
-                   
-                    
-                </tbody>
-    
-    
-                </table>
-            )}
-            
-        </div>
-</>)
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    enquiries.map(enquiry => {
+                                        return (
+                                            <tr className="table-info" key={enquiry.course_enquiryId}>
+                                                <th scope="row">{enquiry.course_name}</th>
+                                                <td>{enquiry.enquirer_name}</td>
+                                                <td>{enquiry.enquirer_email}</td>
+                                                <td>{enquiry.enquirer_phone}</td>
+                                                <td>{enquiry.previous_status}</td>
+
+                                                <td>{enquiry.status}</td>
+
+
+                                            </tr>
+                                        )
+                                    })
+                                }
+
+
+                            </tbody>
+
+
+                        </table>
+                    )}
+
+                </div>
+            </div>
+        </section>
+    </>)
 
 }
