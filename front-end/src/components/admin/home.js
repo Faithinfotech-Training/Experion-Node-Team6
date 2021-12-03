@@ -5,12 +5,12 @@ import ViewResourcesAdmin from "./resourceDetails";
 import { ResourceEnquiryViewAdmin } from "./resurceEnquiryDetails";
 
 
-export function HomeAdmin(){
-   return(<>
-   <CourseRegsiter/>
-   <CourseDetailsAdmin />
-   <CourseEnquiryViewAdmin/>
-<ViewResourcesAdmin/>
-<ResourceEnquiryViewAdmin />
+export function HomeAdmin() {
+   return (<>
+      <CourseRegsiter />
+      <CourseDetailsAdmin />
+      <CourseEnquiryViewAdmin />
+      <ViewResourcesAdmin />
+      <ResourceEnquiryViewAdmin />
    </>)
 }
