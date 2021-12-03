@@ -10,18 +10,32 @@ function About() {
     }
     return (
         <>
-            <div style={head}>
-                <h1>About Us</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate exercitationem fuga, omnis molestiae ratione
-                    libero quod eaque voluptas quibusdam eum temporibus nihil est porro expedita quas atque quis soluta debitis.
-                    Consequuntur neque ad sit aspernatur quasi laudantium. Facilis quod fuga itaque deleniti ut ducimus beatae ea
-                    cupiditate odit at quaerat dicta quasi, voluptate nemo tenetur rem soluta voluptas corporis dolorum nulla earum
-                    expedita aliquid necessitatibus repellendus? Delectus voluptate aut eos nesciunt soluta, odit eveniet id cumque est
-                    repellendus explicabo minima ipsum in ad voluptatem fugit. Ipsam beatae sapiente quae quaerat nesciunt eum
-                    consectetur dolores, fugit deserunt nisi amet eius nam deleniti impedit alias voluptatem quisquam laborum iusto
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore repellendus cupiditate doloremque architecto vero, aut suscipit eius repudiandae est incidunt saepe alias. Officia quasi, qui doloremque ipsam sunt ducimus soluta veritatis vitae expedita in rem molestias, animi ipsa eum minima non repellendus blanditiis explicabo aliquid at dolore esse quae porro! Atque ut assumenda nam distinctio magnam dicta voluptates veniam, quaerat eos a ipsa natus. Doloribus, nobis sed! Qui cupiditate, commodi aut beatae eum ea ipsam quisquam non sapiente recusandae dolorem voluptatum quos voluptates aspernatur quia ut vero impedit minus? Vero, blanditiis iusto rem asperiores aperiam sit quae enim necessitatibus in quibusdam consequuntur modi. Sunt et veritatis labore quis beatae perspiciatis asperiores, odio id, cupiditate incidunt praesentium esse dolor accusantium eveniet repellendus quisquam odit alias consequuntur nesciunt iure dolores deserunt. Dolorum ipsum nobis praesentium quam repellat aperiam deserunt ratione iste, commodi molestiae dignissimos laudantium facere deleniti accusamus dicta excepturi accusantium nulla.
-                    doloribus. Labore vero aperiam sit itaque. Odit molestiae, harum eius assumenda molestias qui?</p>
-            </div>
+            <section class="about-us py-5 " id="about-us">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 class='text-success'>Know More About Us</h1>
+                            <h2>Our Vision</h2>
+                            <hr />
+                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etae magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h2>Our History</h2>
+                            <hr />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dicta iste tempora ratione autem magnam aperiam
+                                vel in laboriosam sed laborum odit temporibus recusandae et excepturi eos aliquam veritatis accusantium similique
+                                asperiores, ab, nostrum nulla reiciendis labore. Labore voluptatem odio obcaecati laboriosam nobis blanditiis magni
+                                necessitatibus delectus, officiis atque eveniet id accusamus eos voluptates, molestiae recusandae eligendi facere
+                                perferendis doloribus mollitia. Sunt, omnis voluptate quos laudantium nemo esse modi accusamus aspernatur, optio a
+                                adipisci fuga? Dignissimos et quibusdam consequatur voluptas totam non libero maxime ipsum accusantium est
+                                obcaecati, quas at. Iste et ipsam quasi facere?
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </>
     )
 }

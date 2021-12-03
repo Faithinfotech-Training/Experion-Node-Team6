@@ -65,8 +65,8 @@ function Home() {
                                 <img className="img-fluid" src="https://m.foolcdn.com/media/the-blueprint/images/GettyImages-1245953309.original.jpg" alt="" data-removed="true" />
                             </div>
                             <div className="col-md-6 mb-4 mb-md-0 order-0" data-removed="true">
-                                <span className="display-3 mb-2">Learn Without Limits</span>
-                                <h3 className="mb-4">Contact By Our Team</h3>
+                                <span className="display-3 mb-2">Our Vision</span>
+                                <h3 className="mb-4">Learn without Limits</h3>
                                 <p>We want to make sure that you can keep using the software that you use to manage your business.</p>
                             </div>
                         </div>
@@ -79,8 +79,8 @@ function Home() {
             <section className="py-2">
                 <div className="container text-center">
                     {/* <div className="col-md-6 mb-4 mb-md-0 order-1" data-removed="true"> */}
-                    <span className="display-3 mb-2">Learn Without Limits</span>
-                    <h3 className="mb-4">Contact By Our Team</h3>
+                    <span className="display-3 mb-2">Our Achievements</span>
+                    <h3 className="mb-4">Success has no ending</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti saepe distinctio non laboriosam aspernatur quae
                         explicabo cupiditate eveniet, commodi neque? Facere porro exercitationem voluptatibus placeat! Delectus at id
