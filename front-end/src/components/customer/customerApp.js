@@ -26,26 +26,26 @@ function CustomerApp(){
     return(
         <>
 <Router>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
         <li class="nav-item active">
         <a class="nav-link" href="/">Home </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="/about">About </a>
 
         </li>
-        <li class="nav-item">
+        <li class="nav-itemnav-item active">
         <a class="nav-link" href="/viewcourse">ViewCourse </a>
 
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="/viewresource">View Resource </a>
 
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="/login">Login</a>
 
         </li>
