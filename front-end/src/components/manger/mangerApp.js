@@ -16,7 +16,7 @@ export function ManagerApp() {
         <div><Link to="/resourse">Resource</Link></div>
         <div><Link to="/resourceenquiry">Resource Enquiry</Link></div>
         {localStorage.getItem('mytoken') && <div><Link onClick={() => window.location = '/login'} to="/login">Logout</Link></div>}
-
+    <a href='https://analytics.google.com/analytics/web/?authuser=2#/report-home/a214024739w295186749p256292937' >Page Visit</a>
         <Routes>
           <Route path="/manager" element={<HomeManger />} />
           <Route path="/course" element={<CourseViewManger />} />
