@@ -60,40 +60,41 @@ function CourseEnquiryForm(props) {
 
     return (
         <>
-            <div className='container form-group row '>
+            <div className='container form-group row fs-5'>
                 <form onSubmit={handleSubmit} action="">
-                    <div>
-                        <label class="col-sm-2 col-form-label ">Course Name  </label>
+                    <h1 className="text-capitalize" > Course registraion</h1>
+                    <div className="mt-1">
+                        <label class="col-sm-4 col-form-label ">Course Name  </label>
                         <input type="text" name="course_name" readOnly className="notallowed"
                             value={inputs.course_name || props.courseName}
-                            class="col-sm-8 notallowed"/>
+                            class="col-sm-6 notallowed text-muted fs-5"/>
                     </div>
-                    <div>
-                        <label class="col-sm-2 col-form-label">Name  </label>
+                    <div className="mt-1">
+                        <label class="col-sm-4 col-form-label">Name  </label>
                         <input type="text" name="enquirer_name"
                             value={inputs.enquirer_name || ""}
                             onChange={handleChange}
-                            class="col-sm-8" />
+                            class="col-sm-6 text-muted fs-5" />
 
                     </div>
-                    <div>
-                        <label class="col-sm-2 col-form-label" >Email  </label>
+                    <div className="mt-1">
+                        <label class="col-sm-4 col-form-label" >Email  </label>
                         <input type="email" name="enquirer_email"
                             value={inputs.enquirer_email || ""}
                             onChange={handleChange} 
-                            class="col-sm-8"/>
+                            class="col-sm-6 text-muted fs-5"/>
 
                     </div>
-                    <div>
-                        <label  class="col-sm-2 col-form-label" >Mobile No  </label>
-                        <input class="col-sm-8" placeholder='###-###-####' type="tel" name="enquirer_phone" pattern="^\d{3}-\d{3}-\d{4}$" required
+                    <div className="mt-1">
+                        <label  class="col-sm-4 col-form-label " >Mobile No  </label>
+                        <input class="col-sm-6 text-muted fs-5" placeholder='###-###-####' type="tel" name="enquirer_phone" pattern="^\d{3}-\d{3}-\d{4}$" required
                             value={inputs.enquirer_phone || ""}
                             onChange={handleChange} />
                     </div>
 
-                    <div className="text-right">
-                        <input className='btn btn-primary ' type="submit" value="Submit" />
-                        <input className='btn btn-secondary mx-2 ' type="reset" name='clear' value="Clear" onClick={()=>navigate(`/detailcourseview/${id}`)} />
+                    <div className="text-right mt-3 ">
+                        <input className='btn btn-success bt-lg ' type="submit" value="Submit" />
+                        <input className='btn btn-secondary mx-3 ' type="reset" name='clear' value="Clear" onClick={()=>navigate(`/detailcourseview/${id}`)} / >
                     </div>
                 </form>
             <ToastContainer />

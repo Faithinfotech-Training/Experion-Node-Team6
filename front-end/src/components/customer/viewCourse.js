@@ -50,7 +50,7 @@ function ViewCourse() {
         <>
             <div >
 
-                <h1 style={{ marginTop: "2%", textAlign: "center" }}> Courselist </h1>
+                <h1 className="text-center display-1 "> Courselist </h1>
                 <div >
 
 
@@ -61,12 +61,12 @@ function ViewCourse() {
                                 <div class="container text-center">
                                    
                                     <div>
-                                        <div class="row align-items-center text-md-left mb-3">
+                                        <div class="row align-items-center text-md-left mb-3 ">
                                             <div class="col-md-6 order-1 order-md-0">
                                                 <img class="img-fluid" src={course.thumbnail} alt="" />
                                             </div>
-                                            <div class="col-md-6 mb-4 mb-md-0">
-                                                <span class="display-6 mb-2">{course.course_name}</span>
+                                            <div class="col-md-6 mb-4 mb-md-0 ">
+                                                <span class="display-5 text-capitalize mb-2">{course.course_name}</span>
                                                
                                                 <h3 class="mb-4 my-3"><button type="button" className="btn btn-primary"
                 onClick={()=>navigate(`/detailcourseview/${course.id}`)} >View Details</button></h3>

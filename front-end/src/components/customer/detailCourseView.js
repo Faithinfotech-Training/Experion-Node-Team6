@@ -23,49 +23,27 @@ function ViewCourseDetails() {
   console.log(courseName);
   return (
     <>
-      <div className="container-fluid row">
-        <div className="card">
-          <section className="py-8">
-            <div className="container text-center">
+      
+        <div className="container row mt-3">
+            <div className="col-md-8 order-2 bg-dark bg-gradient
+ text-white p-5 ">
+              <CourseEnquiryForm courseName={courseName} />
+            </div>
+
+            <div className="col-md-4  mb-4 mb-md-0 order-0 bg-info p-5 bg-gradient
+" data-removed="true">
               <img className="img-fluid" src={course.thumbnail} />
               <div className="card-body">
-            <h4 className="card-title">{course.course_name}</h4>
-            <p className="card-text">{course.description}</p>
-          
-          </div>
+                <h4 className="card-title text-capitalize display-3 text-light">{course.course_name}</h4>
+                <p className="card-text fs-3 text-lower">{course.description}</p>
+                <p className="card-text fs-3">course Fee : <label className="text-light fs-2 bd-highlight text-nowrap">{course.course_fee}</label></p>
+              <bitton className="text-center btn btn-dark float-end btn-lg" onClick={()=>navigate("/viewcourse")}>back</bitton>
+              </div>
+              
             </div>
-          </section>
-          {/* <img src={course.thumbnail}/> */}
-          {/* <img className="card-img-top thumbnail" src={course.thumbnail} alt="Card image cap"/> */}
-         
+     
         </div>
-        <div>
-          <h1>Details of {course.course_name}</h1>
-          <h2>Description : {course.description}</h2>
-          <h2>Course Fee : {course.course_fee}</h2>
-          {/* <h2>Total Seats : {course.total_seat}</h2> */}
-          <h2>Available Seats : {course.available_seat}</h2>
-          <button
-            className="btn btn-primary btn-sm mx-auto"
-            onClick={() => navigate("/viewcourse")}
-          >
-            Back to Course List
-          </button>
-        </div>
-        <br />
-        <br />
-        <div>
-          {" "}
-          <CourseEnquiryForm courseName={courseName} />
-        </div>
-      </div>
-
-      {/* <button type="button" className="btn btn-primary"
-                onClick={(courseName)=>navigate('/courseenquiry')} style={st1}>Place Enquiry</button> */}
-      <br />
-      <br />
-      {/* <button type="button" className="btn btn-primary"
-                onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button> */}
+  
     </>
   );
 }
