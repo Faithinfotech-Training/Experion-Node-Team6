@@ -68,7 +68,7 @@ function ViewCourse() {
                                             <div class="col-md-6 mb-4 mb-md-0">
                                                 <span class="display-6 mb-2">{course.course_name}</span>
                                                
-                                                <h3 class="mb-4"><button type="button" className="btn btn-primary"
+                                                <h3 class="mb-4 my-3"><button type="button" className="btn btn-primary"
                 onClick={()=>navigate(`/detailcourseview/${course.id}`)} >View Details</button></h3>
                                                 <p>Using our Piper Assistant application, you can move your data to be stored our decentralized network with simple drag &amp; drop.</p>
                                             </div>

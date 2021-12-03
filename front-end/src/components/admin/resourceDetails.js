@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
-import { confirmAlert } from 'react-confirm-alert';
+import { confirmAlert} from 'react-confirm-alert';
 const ViewResourcesAdmin = (props) => {
     const [resources, setResource] = useState([])
     const navigate=useNavigate()

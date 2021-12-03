@@ -1,91 +1,73 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
-import './courseView.css'
-import { useNavigate } from 'react-router-dom';
+import "./courseView.css";
+import { useNavigate } from "react-router-dom";
 import CourseEnquiryForm from "../../CourseEnquiry/CourseEnquiryForm";
 
-
-
 function ViewCourseDetails() {
-    const st = {
-        //display:"inline",
-        // align:"center",
-        // marginTop:"0%",
-        //marginLeft:"50%",
-        borderStyle: "solid",
-        backgroundColor: "orange",
-        textAlign: "center",
-        width: "50%",
-        height: "auto",
-        display: "center",
-        margin: "auto",
-        marginTop: "5%"
-    }
-    const st1 = {
+  //initialize the use case to empty
 
-        backgroundColor: "#4CAF50",/* Green */
-        border: "none",
-        color: "white",
-        padding: "10px 32px",
-        textAlign: "center",
-        textDecoration: "none",
-        display: "inline-block",
-        fontSize: "10px",
-        margin: "auto",
-
-
-
-    }
-    //initialize the use case to empty
-
-    const [course, setCourse] = useState([])
-    const { id } = useParams();
-    const navigate = useNavigate();
-    useEffect(() => {
-        axios
-            .get(`http://localhost:5001/course/${id}`)
-            .then(response => {
-                console.log('promise was fullfilled')
-                console.log(response)
-                setCourse(response.data)
-            })
-    }, [])
-    const courseName = course.course_name
-    console.log(courseName)
-    return (<>
-
+  const [course, setCourse] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios.get(`http://localhost:5001/course/${id}`).then((response) => {
+      console.log("promise was fullfilled");
+      console.log(response);
+      setCourse(response.data);
+    });
+  }, []);
+  const courseName = course.course_name;
+  console.log(courseName);
+  return (
+    <>
+      <div className="container-fluid row">
         <div className="card">
-            <img className="card-img-top thumbnail" src={course.thumbnail} alt="Card image cap"/>
-            <div className ="card-body">
-            <h4 className ="card-title">{course.course_name}</h4>
-            <p className ="card-text">
-            {course.description}
-            </p>
-            <a href="#" className ="btn btn-primary">Go somewhere</a>
+          <section className="py-8">
+            <div className="container text-center">
+              <img className="img-fluid" src={course.thumbnail} />
+              <div className="card-body">
+            <h4 className="card-title">{course.course_name}</h4>
+            <p className="card-text">{course.description}</p>
+          
+          </div>
             </div>
+          </section>
+          {/* <img src={course.thumbnail}/> */}
+          {/* <img className="card-img-top thumbnail" src={course.thumbnail} alt="Card image cap"/> */}
+         
         </div>
-        <div style={st}>
-            <h1>Details of {course.course_name}</h1>
-            <h2>Description : {course.description}</h2>
-            <h2>Course Fee : {course.course_fee}</h2>
-            {/* <h2>Total Seats : {course.total_seat}</h2> */}
-            <h2>Available Seats : {course.available_seat}</h2>
+        <div>
+          <h1>Details of {course.course_name}</h1>
+          <h2>Description : {course.description}</h2>
+          <h2>Course Fee : {course.course_fee}</h2>
+          {/* <h2>Total Seats : {course.total_seat}</h2> */}
+          <h2>Available Seats : {course.available_seat}</h2>
+          <button
+            className="btn btn-primary btn-sm mx-auto"
+            onClick={() => navigate("/viewcourse")}
+          >
+            Back to Course List
+          </button>
         </div>
-        <a href="/viewcourse">Back to Course List</a>
-        <br /><br />
-        <div> <CourseEnquiryForm courseName={courseName} /></div>
-        {/* <button type="button" className="btn btn-primary"
+        <br />
+        <br />
+        <div>
+          {" "}
+          <CourseEnquiryForm courseName={courseName} />
+        </div>
+      </div>
+
+      {/* <button type="button" className="btn btn-primary"
                 onClick={(courseName)=>navigate('/courseenquiry')} style={st1}>Place Enquiry</button> */}
-        <br /><br />
-        {/* <button type="button" className="btn btn-primary"
+      <br />
+      <br />
+      {/* <button type="button" className="btn btn-primary"
                 onClick={()=>DeleteCourse(course.id)} style={st1}>Delete</button> */}
-
-
-
-
-    </>);
+    </>
+  );
 }
 
 export default ViewCourseDetails;
