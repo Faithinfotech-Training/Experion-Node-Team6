@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router";
  export function CourseRegsiter(){
 return (<>
 <MyForm />
@@ -8,16 +10,15 @@ return (<>
 
 function MyForm() {
     const mystyle={
-        maxWidth: "500px",
+        maxWidth: "600px",
         background: "white",
-        padding: "10px",
+        padding: "5px",
         borderStyle:"solid",
-        backgroundColor:"orange",
+        backgroundColor:"#43c1439e",
         margin:"auto",
-        textAlign:"center",
-        marginTop:"5%"
      
     }
+    const navigate = useNavigate();
     //initialize useState with emtpy {} and it will return 2 values,
     //The current state, and a function that updates the state.
     const [inputs, setInputs] = useState({});
@@ -40,23 +41,30 @@ function MyForm() {
             .then(response => {
                 console.log('Promise was fulfilled')
                 console.log(response)
-                window.location='/courseList'
+                toast.success("Course added successfully")
+                setTimeout(() => {
+                    navigate("/courseList")
+                }, 5000)
+               // window.location='/courseList'
             })
         }
         else{
-            alert("avilable seat is greater")
+            toast.info("avilable seat is greater")
         }
         
         }
         return (
             <div  className="d-flex justify-content-center" style={mystyle} >
-            <form className="row col-md-6 g-3 needs-validation" onSubmit={handleSubmit}>
+            <form className="row col-md-8 g-3 needs-validation" onSubmit={handleSubmit}>
 
-            
+            <h2 style={{textAlign: "center"}}>Add Course</h2>
             
             <div className="col-md-12">
-                 < label  for="validationCustom01" className="form-label">Course name:</label><br/>
+                 < label  for="validationCustom01" className="form-label">Course name:</label>
                      <input type="text" name="course_name"
+                     id="validationCustom01"
+                     className="form-control"
+                     placeholder="Course Name"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
                         required
@@ -66,9 +74,12 @@ function MyForm() {
             </div>
             <div>
             
-                <label>Description:</label><br/>
+                <label  for="validationCustomDescription" className="form-label">Description:</label>
             
                      <textarea name="description"
+                     id="validationCustomDescription"
+                     className="form-control"
+                     placeholder="Description"
                         value={inputs.description || ""}
                         onChange={handleChange}
                         required
@@ -78,9 +89,12 @@ function MyForm() {
               
             </div>
             <div>
-                <label>Thumbnail URL:</label><br/>
+                <label for="validationCustomthumbnail" className="form-label">Thumbnail URL:</label>
         
                         <input type="text" name="thumbnail"
+                        id="validationCustomthumbnail"
+                        className="form-control"
+                        placeholder="Image Url"
                         value={inputs.thumbnail || ""}
                         onChange={handleChange}
                         required
@@ -89,9 +103,12 @@ function MyForm() {
             </div>    
      
             <div>
-                <label>Course_fee:</label><br/>
+                <label for="validationCustomfee" className="form-label">Course_fee:</label>
         
                         <input type="text" name="course_fee"
+                        id="validationCustomfee"
+                        className="form-control"
+                        placeholder="Course Fee"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
@@ -99,8 +116,11 @@ function MyForm() {
                         />
             </div>    
             <div>
-                <label>total_seat:</label><br/>
+                <label for="validationCustomSeat" className="form-label">total_seat:</label>
                     <input type="number" name="total_seat"
+                    id="validationCustomSeat"
+                    placeholder="Total Seat"
+                    className="form-control"
                         value={inputs.total_seat || ""}
                         onChange={handleChange}
                         required
@@ -112,8 +132,11 @@ function MyForm() {
             <div>
                
                  
-                <label for="validationCustom01" className="form-label">available_seat:</label><br/>
+                <label for="validationCustomseat" className="form-label">available_seat:</label>
                   <input type="number" name="available_seat"
+                  className="form-control"
+                  id="validationCustomseat"
+                  placeholder="Available Seat"
                         value={inputs.available_seat || ""}
                         onChange={handleChange}
                         min="0" max="total_seat.value"
@@ -129,6 +152,7 @@ function MyForm() {
            
 
             </form> 
+            <ToastContainer />
             </div>
         )
 }

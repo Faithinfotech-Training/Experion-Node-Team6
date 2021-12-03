@@ -1,27 +1,27 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router";
 // import './edit.css'
 function CourseEditAdmin() {
     const { id } = useParams();
     return (<>
-        <h1 style={{ textAlign: "center", margin: "2%" }}> Course Edit</h1>
+       
         <MyForm id={id} />
     </>);
 }
 
 function MyForm(props) {
-    const mystyle = {
-        maxWidth: "500px",
-        margin: "auto",
+    const navigate = useNavigate();
+    const mystyle={
+        maxWidth: "600px",
         background: "white",
-        padding: "10px",
-        borderStyle: "solid",
-
-        textAlign: "center",
-        marginTop: "3%",
-
-        backgroundColor: "orange",
+        padding: "5px",
+        borderStyle:"solid",
+        backgroundColor:"#43c1439e",
+        margin:"auto",
+     
     }
     //initialize useState with emtpy {} and it will return 2 values,
     //The current state, and a function that updates the state.
@@ -56,9 +56,12 @@ function MyForm(props) {
                 .then(response => {
                     console.log('Promise was fulfilled')
                     console.log(response)
-                    alert("the user details are updated");
+                    toast.success("Course details updated successfully");
+                    setTimeout(() => {
+                        navigate(`/coursedetails/${props.id}`)
+                    }, 3000)
                 })
-            window.location = `/coursedetails/${props.id}`
+            // window.location = `/coursedetails/${props.id}`
         }
         else {
             alert('Available seat greater than total seat')
@@ -68,11 +71,12 @@ function MyForm(props) {
         <div className="d-flex justify-content-center" style={mystyle} >
             <form className="row col-md-6 g-3 needs-validation" onSubmit={handleSubmit}>
 
-
+            <h3 style={{ textAlign: "center"}}> Course Edit</h3>
 
                 <div className="col-md-12">
                     < label for="validationCustom01" className="form-label">Course name:</label><br />
                     <input type="text" name="course_name"
+                        className="form-control"
                         value={inputs.course_name || ""}
                         onChange={handleChange}
                         required
@@ -82,9 +86,10 @@ function MyForm(props) {
                 </div>
                 <div>
 
-                    <label>Description:</label><br />
+                    <label>Description:</label>
 
                     <textarea name="description"
+                    className="form-control"
                         value={inputs.description || ""}
                         onChange={handleChange}
                         required
@@ -95,9 +100,10 @@ function MyForm(props) {
                 </div>
                 
                 <div>
-                    <label>Course Thumbnail URL:</label><br />
+                    <label>Course Thumbnail URL:</label>
 
                     <input type="text" name="thumbnail"
+                    className="form-control"
                         value={inputs.thumbnail || ""}
                         onChange={handleChange}
                         required
@@ -110,6 +116,7 @@ function MyForm(props) {
                     <label>Course_fee:</label><br />
 
                     <input type="text" name="course_fee"
+                    className="form-control"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
@@ -117,8 +124,9 @@ function MyForm(props) {
                     />
                 </div>
                 <div>
-                    <label>total_seat:</label><br />
+                    <label>total_seat:</label>
                     <input type="text" name="total_seat"
+                    className="form-control"
                         value={inputs.total_seat || ""}
                         onChange={handleChange}
                         required
@@ -130,8 +138,9 @@ function MyForm(props) {
                 <div>
 
 
-                    <label for="validationCustom01" className="form-label">available_seat:</label><br />
+                    <label for="validationCustom01" className="form-label">available_seat:</label>
                     <input type="text" name="available_seat"
+                    className="form-control"
                         value={inputs.available_seat || ""}
                         onChange={handleChange}
                         required
@@ -142,11 +151,12 @@ function MyForm(props) {
                 </div>
 
                 <div>
-                    <button className="btn btn-primary" type="submit">submit</button>
+                    <button className="btn btn-primary" type="submit">Save</button>
                 </div>
 
 
             </form>
+            <ToastContainer />
         </div>
     )
 }

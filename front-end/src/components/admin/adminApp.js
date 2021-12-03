@@ -33,13 +33,38 @@ export function AdminApp() {
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/admin">Home</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item dropdown">
+                                <div className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Course Details
+                                </div>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <Link className="dropdown-item"  to="/course">Course Register</Link>
+                                <div className="dropdown-divider"></div>
+                                <Link className="dropdown-item"  to="/courseList">Course List</Link>
+                                <div className="dropdown-divider"></div>
+                                <Link className="dropdown-item"  to="/courseEnqiury">Course Enquiry</Link> 
+                                </div>
+                            </li>
+
+                            <li className="nav-item dropdown">
+                                <div className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resource Details
+                                </div>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <Link className="dropdown-item"  to="/resource">Add Resource</Link>
+                                <div className="dropdown-divider"></div>
+                                <Link className="dropdown-item"  to="/resourceList">View Resources</Link>
+                                <div className="dropdown-divider"></div>
+                                <Link className="dropdown-item"  to="/resourceEnquiry">Resource Enquiry</Link> 
+                                </div>
+                            </li>
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to="/course">Course</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/courseList">Course List</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li> */}
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to="/resource">Resource</Link>
                             </li>
                             <li className="nav-item">
@@ -50,10 +75,10 @@ export function AdminApp() {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/resourceEnquiry">Resource Enquiry</Link>
-                            </li>
+                            </li> */}
                         </ul>
 
-                        <div class="d-flex">
+                        <div className="d-flex">
                             {localStorage.getItem('mytoken') && <div><Link className="nav-link" onClick={() => window.location = '/login'} to="/login">Logout</Link></div>}
                         </div>
                     </div>
@@ -90,6 +115,7 @@ export function AdminApp() {
 
                     <Route path="/resourceenquiryedit/:resource_enquiry_id" element={<ResourceEnquiryEdit />} />
                     <Route path="/resourceenquirydetails/:resource_enquiry_id" element={<ResourceEnquiryDetails />} />
+                    <Route path="/" element={<HomeAdmin />} />
 
                 </Routes>
 
