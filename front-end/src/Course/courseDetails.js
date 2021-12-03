@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import {useParams} from "react-router-dom"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
 
 
 function CourseDetails(){
@@ -58,20 +59,36 @@ useEffect(()=> {
                 onClick={()=>DeleteCourse(course.id)} style={styling2}>Delete</button>
         </div>
 
+        <ToastContainer/>
 
 
         </>);
 }
-function DeleteCourse(id){
-    console.log('delete1 promise was fullfilled')
-    axios
-    .delete(`http://localhost:5001/course/${id}`)
-    .then(response => {
-    console.log('delete promise was fullfilled')
-    console.log(response)
-    })
-    window.location = '/CourseList'
+
+    const DeleteCourse = (id) => {
+        confirmAlert({
+            title: 'Course Delete',
+            message: 'Are you sure to do this.',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {
+                    axios.delete(`http://localhost:5001/course/${id}`)
+                        .then((response) => {
+                            toast.success("Course deleted succesfully")
+                            window.location = '/CourseList'
+                        })
+                        .catch((error) => {
+                            toast.success("Error occured while Deleting")
+                        })
+                }
+              },
+              {
+                label: 'No'
+              }
+            ]
+          });
+        
     }
-    
 
 export default CourseDetails;
