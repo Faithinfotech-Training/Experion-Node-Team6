@@ -52,18 +52,7 @@ function MyForm(props) {
         toast.error(error.response.data,{position:toast.POSITION.TOP_CENTER})
         console.log(error.response.data)
         localStorage.clear();
-        // toast.success("Enquiry Submitted successfully");
-
-        //alert("got error with no data")
-        if (error.response) {
-        //   alert(error.response.data); // => the response payload
-        //   ()=>{toast.success(error.response.data)}
-          
-        //   confirmAlert({
-        //     title: error.response.data,
-        //     message: error.response.data,
-        //   })
-         }
+       
 
       });
   }
@@ -158,7 +147,7 @@ function MyForm(props) {
                     <input
                       type="submit"
                       value="Log In"
-                      className="btn text-white btn-block btn-primary mb-4"
+                      className="btn text-white btn-lg btn-primary mb-4"
                    
                     />
                     

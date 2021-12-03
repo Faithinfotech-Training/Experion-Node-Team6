@@ -23,7 +23,7 @@ function ViewCourseDetails() {
   console.log(courseName);
   return (
     <>
-      <div className="container row mt-1 ">
+      <div className="container row mt-5  m-auto">
         <div
           className="col-md-8 order-2 bg-dark bg-gradient
  text-white p-5 "
@@ -32,7 +32,7 @@ function ViewCourseDetails() {
         </div>
 
         <div
-          className="col-md-4  mb-4 mb-md-0 order-0 bg-info p-5 bg-gradient
+          className="col-md-4  mb-md-0 order-0 bg-info p-5 bg-gradient
 "
           data-removed="true"
         >
@@ -41,7 +41,9 @@ function ViewCourseDetails() {
             <h4 className="card-title text-capitalize display-3  text-light">
               {course.course_name}
             </h4>
-            <p className="card-text fs-3 text-lower text-secondary">{course.description}</p>
+            <p className="card-text fs-3 text-lower text-secondary">
+              {course.description}
+            </p>
             <p className="card-text fs-4 text-muted text-wrap">
               course Fee :{" "}
               <label className="text-light fs-2 bd-highlight text-nowrap">

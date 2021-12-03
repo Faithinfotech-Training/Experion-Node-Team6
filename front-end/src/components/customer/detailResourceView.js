@@ -7,32 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ResourceEnquiryRegistration } from "../../ResourceEnquiry/ResourceEnquiryRegistration";
 
 function ViewResourceDetails() {
-  const st = {
-    //display:"inline",
-    // align:"center",
-    // marginTop:"0%",
-    //marginLeft:"50%",
-    borderStyle: "solid",
-    backgroundColor: "orange",
-    textAlign: "center",
-    width: "50%",
-    height: "auto",
-    display: "center",
-    margin: "auto",
-    marginTop: "5%",
-  };
-  const st1 = {
-    backgroundColor: "#4CAF50" /* Green */,
-    border: "none",
-    color: "white",
-    padding: "10px 32px",
-    textAlign: "center",
-    textDecoration: "none",
-    display: "inline-block",
-    fontSize: "10px",
-    margin: "auto",
-  };
-  //initialize the use case to empty
+  
 
   const { resource_id } = useParams();
   const [resource, setResource] = useState([]);
@@ -56,7 +31,7 @@ function ViewResourceDetails() {
   console.log(resourceName);
   return (
     <>
-      <div className="container row mt-1 ">
+      <div className="container row mt-5 m-auto mb-1">
         <div
           className="col-md-8 order-0 bg-info bg-gradient
  text-white p-5 "

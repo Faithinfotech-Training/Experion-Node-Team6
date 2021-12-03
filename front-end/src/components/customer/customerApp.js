@@ -26,8 +26,8 @@ function CustomerApp(){
     return(
         <>
 <Router>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark container-fluid">
+    <div class="container-fluid fs-5">
         <ul class="nav navbar-nav">
         <li class="nav-item active">
         <a class="nav-link" href="/">Home </a>
@@ -45,14 +45,20 @@ function CustomerApp(){
         <a class="nav-link" href="/viewresource">View Resource </a>
 
         </li>
-        <li class="nav-item active">
-        <a class="nav-link" href="/login">Login</a>
-
-        </li>
+        
 
 
         </ul>
     </div>
+    <div class=" fs-5 mx-3 float-end">
+        <ul class="nav navbar-nav ">
+        <li class="nav-item active  ">
+        <i class="zmdi zmdi-account material-icons-name"></i>
+        <a class="nav-link " href="/login">Login</a>
+
+        </li>
+        </ul>
+        </div>
 </nav>
 
 
@@ -74,9 +80,9 @@ function CustomerApp(){
 
 </Routes>
 
-<section className="py-8">
+<section className=" container-fluid">
                 <section id="footer">
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="row text-center text-xs-center text-sm-left text-md-left">
                             <div className="col-xs-12 col-sm-4 col-md-4">
                                 <h5>Quick links</h5>
