@@ -10,8 +10,8 @@ function About() {
     }
     return (
         <>
-            <section class="about-us py-5 " id="about-us">
-                <div class="container mt-5">
+            <section class="about-us py-0 " id="about-us">
+                <div class="container mt-3">
                     <div class="row">
                         <div class="col-md-6">
                             <h1 class='text-success'>Know More About Us</h1>

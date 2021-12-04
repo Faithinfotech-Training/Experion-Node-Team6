@@ -4,8 +4,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap';
+import "bootstrap/dist/js/bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import $ from 'jquery';
+import Popper from 'popper.js'
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { AdminApp } from './components/admin/adminApp';
 import { Test } from './test';

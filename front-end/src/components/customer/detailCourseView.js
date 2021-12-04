@@ -23,27 +23,42 @@ function ViewCourseDetails() {
   console.log(courseName);
   return (
     <>
-      
-        <div className="container row mt-3">
-            <div className="col-md-8 order-2 bg-dark bg-gradient
- text-white p-5 ">
-              <CourseEnquiryForm courseName={courseName} />
-            </div>
-
-            <div className="col-md-4  mb-4 mb-md-0 order-0 bg-info p-5 bg-gradient
-" data-removed="true">
-              <img className="img-fluid" src={course.thumbnail} />
-              <div className="card-body">
-                <h4 className="card-title text-capitalize display-3 text-light">{course.course_name}</h4>
-                <p className="card-text fs-3 text-lower">{course.description}</p>
-                <p className="card-text fs-3">course Fee : <label className="text-light fs-2 bd-highlight text-nowrap">{course.course_fee}</label></p>
-              <bitton className="text-center btn btn-dark float-end btn-lg" onClick={()=>navigate("/viewcourse")}>back</bitton>
-              </div>
-              
-            </div>
-     
+      <div className="container row mt-5  m-auto">
+        <div
+          className="col-md-8 order-2 bg-dark bg-gradient
+ text-white p-5 "
+        >
+          <CourseEnquiryForm courseName={courseName} />
         </div>
-  
+
+        <div
+          className="col-md-4  mb-md-0 order-0 bg-info p-5 bg-gradient
+"
+          data-removed="true"
+        >
+          <img className="img-fluid" src={course.thumbnail} />
+          <div className="card-body">
+            <h4 className="card-title text-capitalize display-3  text-light">
+              {course.course_name}
+            </h4>
+            <p className="card-text fs-3 text-lower text-secondary">
+              {course.description}
+            </p>
+            <p className="card-text fs-4 text-muted text-wrap">
+              course Fee :{" "}
+              <label className="text-light fs-2 bd-highlight text-nowrap">
+                {course.course_fee}
+              </label>
+            </p>
+            <bitton
+              className="text-center btn btn-dark float-end btn-lg text-capitalize fs-5"
+              onClick={() => navigate("/viewcourse")}
+            >
+              back
+            </bitton>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

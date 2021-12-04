@@ -1,11 +1,16 @@
 import { useState,useEffect } from "react"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
 
 export function CourseDetailsAdmin(){
     const [course,setcourse]=useState([])
     const navigate=useNavigate()
     useEffect(()=>{
+        getCoureses();
+    },[]);
+    function getCoureses() {
         axios
         .get("http://localhost:5001/course")
         .then((response)=>{
@@ -13,7 +18,32 @@ export function CourseDetailsAdmin(){
             console.log(response);
             setcourse(response.data);
         });
-    },[]);
+    }
+    function DeleteCourse(id){
+        confirmAlert({
+            title: 'Course Delete',
+            message: 'Are you sure to do this.',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: () => {
+                    axios
+                        .delete(`http://localhost:5001/course/${id}`)
+                        .then(response => {
+                        console.log('delete promise was fullfilled')
+                        console.log(response)
+                        getCoureses();
+                        toast.success("Course Deleted successfully")
+                        })
+                }
+              },
+              {
+                label: 'No'
+              }
+            ]
+          });
+        
+        }
 return(<>
 <h1>course list </h1>
 <div>
@@ -34,7 +64,7 @@ return(<>
                     {
                         course.map(course => {
                             return (
-                            <tr className="table-info" key={course.course_id}>
+                            <tr className="table" key={course.course_id}>
                                 <th scope="row">{course.course_name}</th>
                                 <td>{course.description}</td>
                                 <td>{course.course_fee}</td>
@@ -59,19 +89,19 @@ return(<>
     
                 </table>
             )}
-            
+            <ToastContainer />
         </div>
 </>)
 
 }
 
-function DeleteCourse(id){
-    console.log('delete1 promise was fullfilled')
-    axios
-    .delete(`http://localhost:5001/course/${id}`)
-    .then(response => {
-    console.log('delete promise was fullfilled')
-    console.log(response)
-    })
-    window.location = '/courseList'
-    }
+// function DeleteCourse(id){
+//     console.log('delete1 promise was fullfilled')
+//     axios
+//     .delete(`http://localhost:5001/course/${id}`)
+//     .then(response => {
+//     console.log('delete promise was fullfilled')
+//     console.log(response)
+//     })
+//     window.location = '/courseList'
+//     }

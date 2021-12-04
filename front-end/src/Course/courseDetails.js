@@ -9,16 +9,15 @@ import { confirmAlert } from 'react-confirm-alert';
 function CourseDetails(){
     const styling={
         borderStyle : "solid",
-        backgroundColor:"orange",
+        backgroundColor:"#43c1439e",
         textAlign:"center",
         width:"50%",
         height:"auto",
         display:"center",
-        margin:"auto" ,
-        marginTop:"5%"  
+        margin:"auto"  
     }
     const styling2={
-        backgroundColor: "#4CAF50" ,/* Green */
+        backgroundColor: "#43c1439e" ,/* Green */
         border:"none",
         color: "white",
         padding: "10px 32px",

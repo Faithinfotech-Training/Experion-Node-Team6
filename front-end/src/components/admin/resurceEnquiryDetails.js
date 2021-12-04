@@ -14,10 +14,10 @@ export function ResourceEnquiryViewAdmin() {
   }, []);
   return (
     <>
-      <h1>resource Enquiries list </h1>
+      <h3 style={{textAlign: "center"}}>Resource Enquiry List </h3>
       <div>
         {resourceEnquiryList.length === 0 ? (
-          <h5>resourceEnquirys not available</h5>
+          <h5>Resource Enquiry not available</h5>
         ) : (
           <table className="table table-striped w-auto">
             <thead>
@@ -34,7 +34,7 @@ export function ResourceEnquiryViewAdmin() {
               {resourceEnquiryList.map((resourceEnquiry) => {
                 return (
                   <tr
-                    className="table-info"
+                    className="table"
                     key={resourceEnquiry.resource_enquiry_id}
                   >
                     <th scope="row">{resourceEnquiry.resource_name}</th>
@@ -46,7 +46,7 @@ export function ResourceEnquiryViewAdmin() {
                     <td>{resourceEnquiry.status}</td>
                   
                     <td> 
-                         <button   onClick={()=>navigate(`/resourceenquiryedit/${resourceEnquiry.resource_enquiry_id}`)}>edit</button>
+                         <button className="btn btn-primary"   onClick={()=>navigate(`/resourceenquiryedit/${resourceEnquiry.resource_enquiry_id}`)}>edit</button>
 
                     </td>
                   </tr>
