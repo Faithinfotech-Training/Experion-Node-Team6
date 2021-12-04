@@ -13,12 +13,23 @@ export function CourseViewManger() {
             });
     }, []);
     return (<>
-        <section class="py-5"><h1>Course List </h1>
+        <section class="py-5">
             <div class="container text-center">
-                
+            <h1 style ={{marginBottom:20}}>Course List </h1>
                 <div>
                     {course.length === 0 ? (<h5>courses not available</h5>) : (
-                        <table className="table table-striped w-auto">
+                        <table class="table table-hover table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Details</th>
+                            <th scope="col">Course Fee</th>
+                            <th scope="col">Total seats</th>
+                            <th scope="col">Available seats</th>
+
+                          </tr>
+                        </thead>
+                        {/* <table className="table table-striped w-auto">
                             <thead>
                                 <tr>
                                     <th>Course Name</th>
@@ -29,7 +40,7 @@ export function CourseViewManger() {
 
 
                                 </tr>
-                            </thead>
+                            </thead> */}
                             <tbody>
                                 {
                                     course.map(course => {

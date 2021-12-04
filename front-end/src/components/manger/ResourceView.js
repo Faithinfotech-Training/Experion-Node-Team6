@@ -17,17 +17,18 @@ const ViewResourcesManger = (props) => {
             });
     }   
     return (
-        <section class="py-5"><h1>Resource List </h1>
+        <section class="py-5">
         <div class="container text-center">
+        <h1  style ={{marginBottom:20}}>Resource List </h1>
         <div>
             {resources.length === 0 ? (<h5>Resources not available</h5>) : (
-                <table className="table table-striped w-auto">
+                <table className="table table-hover table-dark">
                 <thead>
                     <tr>
-                        <th>Resource Name</th>
+                        <th scope="col">Resource Name</th>
                         {/* <th>Availabilty</th> */}
-                        <th>Status</th>
-                        <th>Rent</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"> Rent</th>
                         
                     </tr>
                 </thead>

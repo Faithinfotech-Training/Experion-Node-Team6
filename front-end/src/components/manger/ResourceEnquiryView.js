@@ -11,22 +11,22 @@ export function ResourceEnquiryViewManger() {
     });
   }, []);
   return (
-    <> <section class="py-5"><h1>Resource Enquiries List </h1>
+    <> <section class="py-5">
       <div class="container text-center">
-
+      <h1 style ={{marginBottom:20}}>Resource Enquiries List </h1>
         <div>
           {resourceEnquiryList.length === 0 ? (
             <h5>resourceEnquirys not available</h5>
           ) : (
-            <table className="table table-striped w-auto">
+            <table className="table table-hover table-dark">
               <thead>
                 <tr>
-                  <th>Resource Name</th>
-                  <th>Enquirer Name</th>
-                  <th>Enquirer Email</th>
-                  <th>Enquirer Phone</th>
-                  <th>Previous Response Status</th>
-                  <th>Current Response Status</th>
+                  <th scope="col">Resource Name</th>
+                  <th scope="col">Enquirer Name</th>
+                  <th scope="col">Enquirer Email</th>
+                  <th scope="col">Enquirer Phone</th>
+                  <th scope="col">Previous Response Status</th>
+                  <th scope="col">Current Response Status</th>
                 </tr>
               </thead>
               <tbody>

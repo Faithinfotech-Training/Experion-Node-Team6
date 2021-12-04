@@ -17,21 +17,21 @@ export function CourseEnquiryViewManger() {
 
     }, [])
     return (<>
-        <section class="py-5"><h1>Course Enquiries List </h1>
+        <section class="py-5">
             <div class="container text-center">
-
+            <h1 style ={{marginBottom:20}}>Course Enquiries List </h1>
                 <div>
                     {enquiries.length === 0 ? (<h5>enquirys not available</h5>) : (
-                        <table className="table table-striped w-auto">
+                        <table className="table table-hover table-dark">
                             <thead>
                                 <tr>
-                                    <th>Course Name</th>
-                                    <th>Enquirer Name</th>
-                                    <th>Enquirer Email</th>
-                                    <th>Enquirer Phone</th>
-                                    <th>Previous Response Status</th>
+                                    <th scope="col">Course Name</th>
+                                    <th scope="col">Enquirer Name</th>
+                                    <th scope="col">Enquirer Email</th>
+                                    <th scope="col">Enquirer Phone</th>
+                                    <th scope="col">Previous Response Status</th>
 
-                                    <th>Current Response Status</th>
+                                    <th scope="col">Current Response Status</th>
 
 
                                 </tr>

@@ -16,6 +16,7 @@ export function ManagerApp() {
             <ul class="nav navbar-nav"> 
               <li class="nav-item active"><div><Link class="nav-link" to="/manager">Home</Link></div></li>
               <li class="nav-item active"><div><Link class="nav-link" to="/course">Course</Link></div></li>
+              <li class="nav-item active"><div><Link class="nav-link" to="/resourse">Resource</Link></div></li>
               <li class="nav-item active"><div><Link class="nav-link" to="/courseenquiry">Course Enquiry</Link></div></li>
               <li class="nav-item active"><div><Link class="nav-link" to="/resourceenquiry">Resource Enquiry</Link></div></li>
               <li class="nav-item active"><a class="nav-link" href='https://analytics.google.com/analytics/web/?authuser=2#/report-home/a214024739w295186749p256292937' >Page Visit</a></li>
