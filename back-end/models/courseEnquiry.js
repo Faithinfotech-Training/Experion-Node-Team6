@@ -14,7 +14,7 @@ status
         autoIncrement: true
     },
     course_name: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     enquirer_name: {
@@ -28,7 +28,7 @@ status
     },
     
     enquirer_phone: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     previous_status: {
