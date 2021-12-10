@@ -3,6 +3,8 @@ import axios from "axios";
 
 export function ResourceEnquiryViewManger() {
   const [resourceEnquiryList, setResourceEnquiryList] = useState([]);
+  const [search, setSearch] = useState('')
+  
   useEffect(() => {
     axios.get("http://localhost:5001/resourceEnquiry").then((response) => {
       console.log("promise was fullfilled");
@@ -14,6 +16,9 @@ export function ResourceEnquiryViewManger() {
     <> <section class="py-5">
       <div class="container text-center">
       <h1 style ={{marginBottom:20}}>Resource Enquiries List </h1>
+      <label  className="mb-3 mx-2 fs-3 text-primary">Search</label><input type='text'
+        name='search' placeholder='Search By Enquirer Name'
+        onChange={event => setSearch(event.target.value)} />
         <div>
           {resourceEnquiryList.length === 0 ? (
             <h5>resourceEnquirys not available</h5>
@@ -25,12 +30,19 @@ export function ResourceEnquiryViewManger() {
                   <th scope="col">Enquirer Name</th>
                   <th scope="col">Enquirer Email</th>
                   <th scope="col">Enquirer Phone</th>
-                  <th scope="col">Previous Response Status</th>
+                  {/* <th scope="col">Previous Response Status</th> */}
                   <th scope="col">Current Response Status</th>
                 </tr>
               </thead>
               <tbody>
-                {resourceEnquiryList.map((resourceEnquiry) => {
+                {resourceEnquiryList.filter((resourceEnquiry)=>{
+                            if (search==''){
+                                return resourceEnquiry
+                            }
+                            else if (resourceEnquiry.enquirer_name.toLowerCase().includes(search.toLowerCase())){
+                                return resourceEnquiry
+                            }
+                        }).map((resourceEnquiry) => {
                   return (
                     <tr
                       className="table-info"
@@ -41,7 +53,7 @@ export function ResourceEnquiryViewManger() {
                       <td>{resourceEnquiry.enquirer_email}</td>
                       <td>{resourceEnquiry.enquirer_phone}</td>
 
-                      <td>{resourceEnquiry.previous_status}</td>
+                      {/* <td>{resourceEnquiry.previous_status}</td> */}
                       <td>{resourceEnquiry.status}</td>
                     </tr>
                   );

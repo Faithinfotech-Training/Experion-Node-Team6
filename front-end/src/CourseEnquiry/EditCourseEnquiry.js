@@ -31,7 +31,7 @@ function MyForm(props) {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/course_enquirys/${props.course_enquiryId}`)
+      .get(`http://localhost:5001/courseEnquiry/${props.course_enquiryId}`)
       .then((response) => {
         setCourseEnquiryList(response.data);
      
@@ -53,7 +53,7 @@ function MyForm(props) {
     // enquiry.previous_status = pre;
     axios
       .put(
-        `http://localhost:5001/course_enquirys/${props.course_enquiryId}`,
+        `http://localhost:5001/courseEnquiry/${props.course_enquiryId}`,
         enquiry
       )
       .then((response) => {
@@ -67,7 +67,7 @@ function MyForm(props) {
       <div className="regform ">
         <form onSubmit={handleSubmit}>
           <h1>Enquiry Response Status Updation</h1>
-          <a href="/courseenquirylist">Back to Enquiry List</a>
+          <a href="/courseEnqiury">Back to Enquiry List</a>
           <div>Course Name : {enquiry.course_name}</div>
           <div>Enquirer Name: {enquiry.enquirer_name}</div>
           <div>Enquirer Email: {enquiry.enquirer_email}</div>
@@ -80,7 +80,7 @@ function MyForm(props) {
               <option value="Attended"> Select</option>
               <option value="Attended"> Attended</option>
               <option value="Not Attended"> Not Attended</option>
-              <option value="slected"> selected</option>
+              <option value="selected"> selected</option>
 
             </select>
           </div>

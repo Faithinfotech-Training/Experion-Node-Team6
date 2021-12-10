@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/react-toastify.esm'
@@ -8,96 +11,63 @@ import { confirmAlert } from 'react-confirm-alert';
 
 function Login() {
     toast.configure()
-  localStorage.clear();
-  return (
-    <>
-      {/* <h1>Please Login</h1> */}
-      <MyForm />
-    </>
-  );
+    localStorage.clear();
+    return (<>
+        {/* <h1>Please Login</h1> */}
+        <MyForm />
+    </>);
+
 }
 
 function MyForm(props) {
-  //initialize useState with emtpy {} and it will return 2 values,
-  //The current state, and a function that updates the state.
-  const [inputs, setInputs] = useState({});
+    const navigate =useNavigate();
 
-  function handleChange(event) {
-    //during change of every element.
-    //save name in 'name' and its value in value
-    const name = event.target.name;
-    const value = event.target.value;
-    // setInputs is the function that updates the state.
-    setInputs((values) => ({ ...values, [name]: value }));
-  }
+    //initialize useState with emtpy {} and it will return 2 values,
+    //The current state, and a function that updates the state.
+    const [inputs, setInputs] = useState({});
 
-  function handleSubmit(event) {
-    //to prevent default html form submit behaviour
-    event.preventDefault();
-    //alert the current state
-    console.log(inputs);
+    function handleChange(event) {
+        //during change of every element.
+        //save name in 'name' and its value in value
+        const name = event.target.name;
+        const value = event.target.value;
+        // setInputs is the function that updates the state.
+        setInputs(values => ({ ...values, [name]: value }))
 
-    axios
-      .post("http://localhost:3005/login", inputs) //connection url with backend
-      .then((response) => {
-        //alert(response.data.user.id)
-        //alert(response.data.accessToken)
-        localStorage.setItem("mytoken", response.data.accessToken);
-        localStorage.setItem("role", response.data.user.role);
-        if (response.data.user.role === "admin") window.location = "/admin";
-        else if (response.data.user.role === "manager")
-          window.location = "/manager";
-      })
-      .catch((error) => {
-        toast.error(error.response.data,{position:toast.POSITION.TOP_CENTER})
+    }
+
+    function handleSubmit(event) {
+        //to prevent default html form submit behaviour
+        event.preventDefault();
+        //alert the current state
+        console.log(inputs);
+
+        axios
+            .post('http://localhost:5001/authentications/login', inputs,)//connection url with backend
+            .then(response => {
+                //alert(response.data.user.id)
+                //alert(response.data.accessToken)
+                localStorage.setItem('mytoken', response.data.accessToken)
+                localStorage.setItem('role', response.data.user.RoleID)
+                localStorage.setItem('test', response.data.user.RoleID)
+
+                if (response.data.user.RoleID === 1)
+                    window.location='/admin'
+                else if (response.data.user.RoleID === 2)
+                    window.location='/manager'
+
+            })
+            .catch(error => {
+                toast.error(error.response.data,{position:toast.POSITION.TOP_CENTER})
         console.log(error.response.data)
         localStorage.clear();
-       
 
-      });
-  }
+            })
 
-  return (
-    <>
-      {/* <form className="regform" onSubmit={handleSubmit}>
-        <div>
-          <div className="formrow">
-            <label>
-              {" "}
-              User Email:
-              <input
-                type="email"
-                name="email"
-                value={inputs.email || ""}
-                onChange={handleChange}
-                required
-              />
-              <br /> <br />
-            </label>
-          </div>
-          <div className="formrow">
-            <label>
-              {" "}
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={inputs.password || ""}
-                onChange={handleChange}
-                required
-              />
-              <br /> <br />
-            </label>
-          </div>
-
-          <input className="submit " type="submit" />
-        </div>
-      </form> */}
-
-
-
-
-      <div className="content mt-3 ">
+    }
+    
+    return (
+        <div className="content mt-3 ">
         <div className="container  pt-3 ">
           <div className="row">
             <div className="col-md-6 order-md-2">
@@ -120,15 +90,16 @@ function MyForm(props) {
                       consectetur adipisicing.
                     </p>
                   </div>
-                  <form action="#" onSubmit={handleSubmit}>
+
+        <form action="#" onSubmit={handleSubmit}>
                     <div className="form-group first">
                       <label className=" fs-5">Username</label>
                       <input
                        
                         className="form-control "
-                        type="email"
-                        name="email"
-                        value={inputs.email || ""}
+                        type="text"
+                        name="UserName"
+                        value={inputs.UserName || ""}
                         onChange={handleChange}
                         required                    />
                     </div>
@@ -137,8 +108,8 @@ function MyForm(props) {
                       <input
                         type="password"
                         className="form-control "
-                         name="password"
-                value={inputs.password || ""}
+                         name="Password"
+                value={inputs.Password || ""}
                 onChange={handleChange}
                 required
                       />
@@ -152,13 +123,18 @@ function MyForm(props) {
                     />
                     
                   </form>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
-  );
+
+)
+
 }
 export default Login;
+
+/*
+
+*/

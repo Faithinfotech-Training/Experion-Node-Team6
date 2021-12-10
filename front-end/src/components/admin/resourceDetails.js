@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
-import { confirmAlert} from 'react-confirm-alert';
+import { confirmAlert } from 'react-confirm-alert';
 const ViewResourcesAdmin = (props) => {
     const [resources, setResource] = useState([])
     const navigate = useNavigate()
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         getAllResources();
@@ -46,12 +47,16 @@ const ViewResourcesAdmin = (props) => {
     }
 
 
-    return (
+    return (<>
+        <h1 className="text-capitalize">Resource List </h1><label className="mb-3 mx-2 fs-3 text-primary">Search</label><input type='text'
+            name='search' placeholder='Search By Resource Name'
+            onChange={event => setSearch(event.target.value)} />
+
         <div className="container">
             {resources.length === 0 ? (<h5>Resources not available</h5>) : (
                 <table className="table table-striped w-full">
                     <thead>
-                        <tr>
+                        <tr className="text-capitalize">
                             <th>Resource Name</th>
                             {/* <th>Availabilty</th> */}
                             <th>Status</th>
@@ -62,12 +67,19 @@ const ViewResourcesAdmin = (props) => {
                     </thead>
                     <tbody>
                         {
-                            resources.map(resource => {
+                            resources.filter((resource) => {
+                                if (search == '') {
+                                    return resource
+                                }
+                                else if (resource.resource_name.toLowerCase().includes(search.toLowerCase())) {
+                                    return resource
+                                }
+                            }).map(resource => {
                                 return (
                                     <tr className="" key={resource.resource_id}>
-                                        <th scope="row">{resource.resource_name}</th>
+                                        <th scope="row" className="text-capitalize">{resource.resource_name}</th>
 
-                                        <td>{resource.status}</td>
+                                        <td className="text-capitalize">{resource.status}</td>
                                         <td>{resource.rent}</td>
                                         <td>
                                             <button className="btn btn-outline-primary" onClick={() => navigate(`/resourceedit/${resource.resource_id}`)} >Edit</button>
@@ -88,7 +100,7 @@ const ViewResourcesAdmin = (props) => {
         </div>
 
 
-    )
+    </>)
 }
 
 export default ViewResourcesAdmin;

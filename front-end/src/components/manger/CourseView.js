@@ -3,6 +3,8 @@ import axios from "axios";
 
 export function CourseViewManger() {
     const [course, setcourse] = useState([])
+    const [search, setSearch] = useState('')
+
     useEffect(() => {
         axios
             .get("http://localhost:5001/course")
@@ -16,6 +18,10 @@ export function CourseViewManger() {
         <section class="py-5">
             <div class="container text-center">
             <h1 style ={{marginBottom:20}}>Course List </h1>
+            <label  className="mb-3 mx-2 fs-3 text-primary">Search</label><input type='text' 
+name='search' placeholder='Search By Course Name'
+onChange={event =>setSearch(event.target.value)} />
+
                 <div>
                     {course.length === 0 ? (<h5>courses not available</h5>) : (
                         <table class="table table-hover table-dark">
@@ -43,7 +49,14 @@ export function CourseViewManger() {
                             </thead> */}
                             <tbody>
                                 {
-                                    course.map(course => {
+                                    course.filter((course)=>{
+                                        if (search==''){
+                                            return course
+                                        }
+                                        else if (course.course_name.toLowerCase().includes(search.toLowerCase())){
+                                            return course
+                                        }
+                                    }).map(course => {
                                         return (
                                             <tr className="table-info" key={course.course_id}>
                                                 <th scope="row">{course.course_name}</th>

@@ -1,27 +1,27 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router";
-import "../ResourceEnquiry/resourcesStyles.css";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 
 function CourseEnquiryForm(props) {
-  const navigate = useNavigate();
-  const { id } = useParams();
+  
 
   const [inputs, setInputs] = useState({});
-
+  const navigate = useNavigate();
+  const { id } = useParams();
   console.log(props.courseName);
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
+    inputs.course_name = props.courseName;
+  
   }
 
   function handleSubmit(event) {
     //to prevent default html form submit behaviour
 
-    // event.preventDefault();
+    event.preventDefault();
     inputs.status = "pending";
     inputs.previous_status = "pending";
     inputs.course_name = props.courseName;
@@ -32,7 +32,7 @@ function CourseEnquiryForm(props) {
         
         */
     axios
-      .post("http://localhost:5001/course_enquirys", inputs)
+      .post("http://localhost:5001/courseEnquiry", inputs)
       .then((response) => {
         console.log("promise fulfilled");
         console.log(response);
@@ -40,7 +40,7 @@ function CourseEnquiryForm(props) {
         toast.success("Enquiry Submitted successfully");
         setTimeout(() => {
           navigate("/thanks");
-        }, 3000);
+        }, 2000);
         // window.location = '/thanks'
       });
     /**
@@ -98,7 +98,7 @@ function CourseEnquiryForm(props) {
             <input
               class="col-sm-6 text-muted fs-5"
               placeholder="###-###-####"
-              type="tel"
+              type="text"
               name="enquirer_phone"
               required
               value={inputs.enquirer_phone || ""}

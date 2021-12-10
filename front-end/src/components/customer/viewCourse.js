@@ -23,7 +23,8 @@ function ViewCourse() {
   return (
     <>
       <div>
-        <h1 className="text-center display-1 "> Courselist </h1>
+        <h1 className="text-center display-1 "> Courses </h1>
+        
         <div>
           {courses.map((course) => (
             <div key={course.id}>

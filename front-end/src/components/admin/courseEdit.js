@@ -74,7 +74,7 @@ function MyForm(props) {
             <h3 style={{ textAlign: "center"}}> Course Edit</h3>
 
                 <div className="col-md-12">
-                    < label for="validationCustom01" className="form-label">Course name:</label><br />
+                    < label for="validationCustom01" className="form-label">Course Name:</label><br />
                     <input type="text" name="course_name"
                         className="form-control"
                         value={inputs.course_name || ""}
@@ -113,18 +113,19 @@ function MyForm(props) {
 
 
                 <div>
-                    <label>Course_fee:</label><br />
+                    <label>Course Fee:</label><br />
 
-                    <input type="text" name="course_fee"
+                    <input type="number" name="course_fee"
                     className="form-control"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
+                        min={0}
 
                     />
                 </div>
                 <div>
-                    <label>total_seat:</label>
+                    <label>Total Seat:</label>
                     <input type="text" name="total_seat"
                     className="form-control"
                         value={inputs.total_seat || ""}
@@ -138,9 +139,10 @@ function MyForm(props) {
                 <div>
 
 
-                    <label for="validationCustom01" className="form-label">available_seat:</label>
+                    <label for="validationCustom01" className="form-label">Available Seat:</label>
                     <input type="text" name="available_seat"
-                    className="form-control"
+                    className="form-control" 
+                    min="0" max={inputs.total_seat}
                         value={inputs.available_seat || ""}
                         onChange={handleChange}
                         required

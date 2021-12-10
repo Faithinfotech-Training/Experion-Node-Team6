@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 const ViewResourcesManger = (props) => {
     const [resources, setResource] = useState([])
+    const [search, setSearch] = useState('')
     
     useEffect(() => {
         getAllResources();
@@ -20,6 +21,11 @@ const ViewResourcesManger = (props) => {
         <section class="py-5">
         <div class="container text-center">
         <h1  style ={{marginBottom:20}}>Resource List </h1>
+
+        <label  className="mb-3 mx-2 fs-3 text-primary">Search</label><input type='text' 
+name='search' placeholder='Search By Resource Name'
+onChange={event =>setSearch(event.target.value)} />
+        
         <div>
             {resources.length === 0 ? (<h5>Resources not available</h5>) : (
                 <table className="table table-hover table-dark">
@@ -34,7 +40,14 @@ const ViewResourcesManger = (props) => {
                 </thead>
                 <tbody>
                     {
-                        resources.map(resource => {
+                        resources.filter((resource)=>{
+                            if (search==''){
+                                return resource
+                            }
+                            else if (resource.resource_name.toLowerCase().includes(search.toLowerCase())){
+                                return resource
+                            }
+                        }).map(resource => {
                             return (
                             <tr className="table-info" key={resource.resource_id}>
                                 <th scope="row">{resource.resource_name}</th>

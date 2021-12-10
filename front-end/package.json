@@ -2,7 +2,7 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3005/login",
+  "proxy": "http://localhost:5001/authentications/login",
   "dependencies": {
     "@popperjs/core": "^2.11.0",
     "@testing-library/jest-dom": "^5.15.1",
@@ -23,6 +23,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
+    "recharts": "^2.1.6",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

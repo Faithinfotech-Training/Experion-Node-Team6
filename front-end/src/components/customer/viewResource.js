@@ -41,7 +41,7 @@ function ViewResource() {
   return (
     <>
       <div>
-        <h1 className="text-center display-1 "> Resource list </h1>
+        <h1 className="text-center display-1 "> Resources </h1>
         <div>
           {resources.map((resource) => (
             <div key={resource.resource_id}>

@@ -37,12 +37,12 @@ function CustomerApp(){
 
         </li>
         <li class="nav-itemnav-item active">
-        <a class="nav-link" href="/viewcourse">ViewCourse </a>
+        <a class="nav-link" href="/viewcourse">Courses </a>
 
         </li>
 
         <li class="nav-item active">
-        <a class="nav-link" href="/viewresource">View Resource </a>
+        <a class="nav-link" href="/viewresource">Resources </a>
 
         </li>
         

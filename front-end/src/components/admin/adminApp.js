@@ -21,6 +21,8 @@ import { ResourceEnquiryViewAdmin } from "./resurceEnquiryDetails";
 export function AdminApp() {
     return (<>
         <Router>
+   {localStorage.getItem('mytoken') && localStorage.getItem(`role`)=== 2 &&<Login/>}
+        
             <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#8ec63f" }}>
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,24 +60,7 @@ export function AdminApp() {
                                 <Link className="dropdown-item"  to="/resourceEnquiry">Resource Enquiry</Link> 
                                 </div>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link className="nav-link" to="/course">Course</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/courseList">Course List</Link>
-                            </li> */}
-                            {/* <li className="nav-item">
-                                <Link className="nav-link" to="/resource">Resource</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/resourceList">Resource List</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/courseEnqiury">Course Enquiry</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/resourceEnquiry">Resource Enquiry</Link>
-                            </li> */}
+                          
                         </ul>
 
                         <div className="d-flex">

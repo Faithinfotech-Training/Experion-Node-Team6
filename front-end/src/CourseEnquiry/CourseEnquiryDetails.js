@@ -11,7 +11,7 @@ function CourseEnquiryDetails() {
     useEffect(() => {
         console.log('The use effect hook has been executed');
         axios
-            .get(`http://localhost:5001/course_enquirys/${course_enquiryId}`)
+            .get(`http://localhost:5001/courseEnquiry/${course_enquiryId}`)
             .then(response => {
                 console.log('promise fulfilled')
                 console.log(response)
@@ -29,11 +29,11 @@ function CourseEnquiryDetails() {
                 <div>Enquirer Name: {enquiry.enquirer_name}</div>
                 <div>Enquirer Email: {enquiry.enquirer_email}</div>
                 <div>Enquirer Phone: {enquiry.enquirer_phone}</div>
-                <div>Previous Status: {enquiry.previous_status}</div>
+                {/* <div>Previous Status: {enquiry.previous_status}</div> */}
 
                 <div>Response Status: {enquiry.status}
-                    <button>
-                        <Link to={`/courseenquiryupdate/${enquiry.course_enquiryId}`}>Edit Status</Link>
+                    <button className="btn btn-primary">
+                        <Link className='text-light' style={{textDecoration:'none'}} to={`/courseenquiryupdate/${enquiry.course_enquiryId}`}>Edit Status</Link>
                     </button>
                     {/* <button>
                     <DeleteCourseEnquiry course_enquiryId ={enquiry.course_enquiryId}/>

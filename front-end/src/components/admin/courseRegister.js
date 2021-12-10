@@ -35,7 +35,7 @@ function MyForm() {
         event.preventDefault();
         //alert the current state
         // console.log(seatCheck(inputs));
-        if(inputs.total_seat > inputs.available_seat){
+        if(inputs.total_seat >= inputs.available_seat){
             axios
             .post('http://localhost:5001/course',inputs)
             .then(response => {
@@ -49,7 +49,7 @@ function MyForm() {
             })
         }
         else{
-            toast.info("avilable seat is greater")
+            toast.info("available seat is greater")
         }
         
         }
@@ -60,7 +60,7 @@ function MyForm() {
             <h2 style={{textAlign: "center"}}>Add Course</h2>
             
             <div className="col-md-12">
-                 < label  for="validationCustom01" className="form-label">Course name:</label>
+                 < label  for="validationCustom01" className="form-label">Course Name:</label>
                      <input type="text" name="course_name"
                      id="validationCustom01"
                      className="form-control"
@@ -103,20 +103,21 @@ function MyForm() {
             </div>    
      
             <div>
-                <label for="validationCustomfee" className="form-label">Course_fee:</label>
+                <label for="validationCustomfee" className="form-label">Course Fee:</label>
         
-                        <input type="text" name="course_fee"
+                        <input type="number" name="course_fee"
                         id="validationCustomfee"
                         className="form-control"
                         placeholder="Course Fee"
                         value={inputs.course_fee || ""}
                         onChange={handleChange}
                         required
+                        min="0"
                         
                         />
             </div>    
             <div>
-                <label for="validationCustomSeat" className="form-label">total_seat:</label>
+                <label for="validationCustomSeat" className="form-label">Total Seat:</label>
                     <input type="number" name="total_seat"
                     id="validationCustomSeat"
                     placeholder="Total Seat"
@@ -132,14 +133,14 @@ function MyForm() {
             <div>
                
                  
-                <label for="validationCustomseat" className="form-label">available_seat:</label>
+                <label for="validationCustomseat" className="form-label">Available Seat:</label>
                   <input type="number" name="available_seat"
                   className="form-control"
                   id="validationCustomseat"
                   placeholder="Available Seat"
                         value={inputs.available_seat || ""}
                         onChange={handleChange}
-                        min="0" max="total_seat.value"
+                        min="0" max={inputs.total_seat}
                         
                     />
              
